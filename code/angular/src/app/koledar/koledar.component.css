@@ -1,0 +1,289 @@
+#right {
+  width: 100% !important;
+}
+.wrapper {
+  color: #454545;
+}
+/* Calendar container */
+.container-calendar {
+  display: flex;
+}
+
+.clinic-reminder {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 100px;
+  display: block;
+}
+
+.employee-reminder {
+  width: 10px;
+  height: 10px;
+  background-color: orange;
+  border-radius: 100px;
+  display: block;
+}
+
+.reminder-div {
+  display: flex;
+  flex-direction: row;
+}
+
+#thead-month{
+  background-color: #D0E3E2 !important;
+}
+
+/* Event section styling */
+#event-section {
+  padding: 10px;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+}
+
+.container-calendar #left h1 {
+  color: green;
+  text-align: center;
+  background-color: #f2f2f2 !important;
+  margin: 0;
+  padding: 10px 0;
+}
+
+#event-section h3 {
+  color: #454545 !important;
+  font-size: 18px;
+  margin: 0;
+}
+
+#event-section input[type="date"],
+#event-section input[type="text"] {
+  margin: 10px 0;
+  padding: 5px;
+  width: 80%;
+}
+
+#event-section button {
+  background: green;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.event-marker {
+  position: relative;
+}
+
+.event-marker::after {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: red !important;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* event tooltip styling */
+.event-tooltip {
+  position: absolute;
+  background-color: rgba(234, 232, 232, 0.763) !important;
+  color: black;
+  padding: 10px;
+  border-radius: 4px;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  transition: all 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.event-marker:hover .event-tooltip {
+  display: block;
+}
+
+#output th {
+  font-weight: normal;
+}
+
+/* Reminder section styling */
+#reminder-section {
+  padding: 10px;
+  background: #ffffff !important;
+  margin: 20px 0;
+  border: 1px solid #D0E3E2;
+  color: #454545;
+}
+
+#reminder-section h3 {
+  color: #454545 !important;
+  font-size: 18px;
+  margin: 0;
+}
+
+#reminderList {
+  list-style: none;
+  padding: 0;
+}
+
+#reminderList li {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+/* Style for the delete buttons */
+.delete-event {
+  display: inline;
+  border: none;
+  cursor: pointer;
+  border-radius: 50vw;
+  background-color: #D0E3E2 !important;
+  color: #697E7D;
+  height: 3vh;
+}
+.delete-event:hover{
+  background-color: #697E7D !important;
+  color: #D0E3E2 !important;
+}
+.delete-event .material-symbols-outlined {
+  font-size: 120%;
+}
+/* Buttons in the calendar */
+.button-container-calendar button {
+  cursor: pointer;
+  background: green;
+  color: #fff;
+  border: 1px solid green;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+/* Calendar table */
+.table-calendar {
+  width: 190%;
+  border-collapse: collapse;
+}
+
+.table-calendar td{
+  background-color: #F9FFFE;
+}
+
+.table-calendar td,
+.table-calendar th {
+  padding: 5px;
+  border: 1px solid #D0E3E2 !important;
+  text-align: center;
+  vertical-align: top;
+}
+
+/* Date picker */
+.date-picker.selected {
+  background-color: #f2f2f2 !important;
+  font-weight: bold;
+}
+
+.date-picker.selected span {
+  border-bottom: 2px solid #454545 !important;
+  color: #454545 !important;
+}
+
+/* Day-specific styling */
+.date-picker:nth-child(7) {
+  color: #CECECE !important;
+  /* Sunday */
+}
+
+.date-picker:nth-child(7):hover {
+  color: #454545 !important;
+  /* Sunday */
+}
+
+/* Hover effect for date cells */
+.date-picker:hover {
+  background-color: #D0E3E2 !important;
+  cursor: pointer;
+}
+
+/* Header for month and year */
+#monthAndYear {
+  display: inline;
+  text-transform: uppercase;
+  cursor: default;
+  vertical-align: super;
+}
+
+/* Navigation buttons */
+.button-container-calendar {
+  text-align: center;
+}
+
+#previous {
+  color: #454545 !important;
+  background: none;
+  border: none;
+}
+
+#next {
+  color: #454545 !important;
+  background: none;
+  border: none;
+}
+.buttonDodaj{
+  display: block;
+  margin: auto;
+  padding-top: 0.8vh;
+  border-radius: 50vw;
+  border: none;
+  background-color: #D0E3E2;
+  color: #697E7D;
+  line-height: 4vh;
+  height: 5vh;
+}
+.buttonDodaj:hover{
+  background-color: #697E7D;
+  color: #D0E3E2;
+}
+.input{
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 1px 6px;
+}
+.buttonDodaj1 {
+  font-size: x-large;
+  display: inline;
+  margin: auto;
+  line-height: 3vh;
+  height: 4vh;
+  border-radius: 50vw;
+  border: none;
+  background-color: #D0E3E2 !important;
+  color: #697E7D;
+}
+.buttonDodaj1:hover {
+  background-color: #697E7D !important;
+  color: #D0E3E2 !important;
+}
+#output {
+  color: #454545;
+  background-color: #FFFFFF;
+}
+#output td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+@media screen and (max-width: 991px) {
+  .table-calendar {
+    width: 100%;
+  }
+  #monthAndYear {
+    font-size: 90%;
+  }
+  #ustvarjeno{
+    min-width: 40vw;
+  }
+}

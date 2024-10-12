@@ -1,0 +1,171 @@
+@font-face {
+  font-family: Goldleaf;
+  src: url(GOLDLEAF-BOLD-PERSONAL-USE.ttf);
+}
+@font-face {
+  font-family: "Josefin Sans Light";
+  src: url(JosefinSans-Light.ttf);
+}
+div {
+  font-family: "Josefin Sans Light";
+}
+body {
+  background-image: url("BackgroundLoginStranka.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+#navbar {
+  background-color: #3ebdae !important;
+  width: 800px;
+  border-radius: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 50px;
+  margin-top: -50px;
+  font-size: large;
+}
+#navbar .btn {
+  margin-top: -1%;
+  background-color: #3ebdae;
+  opacity: 70%;
+  font-family: Goldleaf;
+  font-size: 140%;
+  color: #ddfbf7;
+  padding: 0px 15px 5px 15px;
+  border: none;
+  border-radius: 15px;
+}
+#navbar .btn:hover {
+  color: #ddfbf7;
+  background-color: #3ebdae;
+  opacity: 100%;
+}
+#navbar .btn-primary:active {
+  background-color: #3ebdae !important;
+}
+.logo {
+  margin-top: -1%;
+  width: 80px;
+}
+#vetSplet {
+  margin-top: 4%;
+  font-size: 60px;
+  font-family: Goldleaf;
+  text-align: center;
+}
+.center-block {
+  margin-left: auto;
+  margin-right: auto;
+}
+.form-label {
+  display: inline;
+  margin-left: 2vh;
+}
+.ime {
+  margin-left: 73%;
+}
+.priimek {
+  margin-left: -3%;
+}
+.form-control {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 5px 15px;
+  border-radius: 25px;
+  border-color: #707070;
+}
+.mb-3 {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.form {
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-y: auto;
+}
+#basic-url1 {
+  width: 25%;
+  margin-left: 70%;
+  margin-bottom: 1%;
+}
+#basic-url2 {
+  width: 34%;
+  margin-left: -4%;
+  margin-bottom: 1%;
+}
+.form-text {
+  text-align: right;
+  margin-right: 36%;
+}
+.mb-3 .btn {
+  margin-left: 59%;
+  margin-top: 0.5%;
+  background-color: #f3e38b;
+  opacity: 70%;
+  font-family: Goldleaf;
+  font-size: 140%;
+  color: #f9f7ec;
+  padding: 0px 15px 5px 15px;
+  border: none;
+  border-radius: 15px;
+}
+.mb-3 .btn:hover {
+  color: #f9f7ec;
+  background-color: #f3e38b;
+  opacity: 100%;
+}
+.mb-3 .btn-primary:active {
+  background-color: #f3e38b !important;
+}
+
+@media screen and (max-width: 1600px) {
+  .logo {
+    height: 80px;
+    width: 80px;
+  }
+  .form {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+  }
+
+  .form-control {
+    padding: 0px 15px;
+    border-radius: 25px;
+    border-color: #707070;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .form {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+  }
+  .ime,
+  .priimek {
+    margin-left: 12%;
+  }
+  #basic-url1,
+  #basic-url2 {
+    width: 82%;
+    border-radius: 25px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .form {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+  }
+}

@@ -1,0 +1,17 @@
+<h1>Use tokens to get a discount on your next appointment!</h1>
+<!-- START: Error message -->
+
+    <button (click) = "registerUser()">Register User</button>
+    <button (click) = "addingTokens()">Add Tokens</button>
+    <button (click) = "removingTokens()">Remove Tokens</button>
+    <button (click) = "balanceOf()">Balancing</button>
+    <button (click) = "discountTokens()">Use discount</button>
+
+<div class="row" *ngIf="message">
+    <div class="col-12">
+        <div class="alert alert-dark mt-4 p-2">
+            <i class="fa-solid fa-triangle-exclamation pe-2"></i>{{ message }}
+        </div>
+    </div>
+</div>
+<!-- END: Error message -->

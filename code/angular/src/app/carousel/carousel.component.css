@@ -1,0 +1,74 @@
+.row {
+    width: 100%;
+}
+
+.clinic-info {
+    flex-direction: row;
+    color: #454545;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.card {
+    border-radius: 2.5vh;
+    background-color: #e8f2f0;
+    border: none;
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-header {
+    background-size: cover;
+    color: #454545;
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+}
+
+.oneLine {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 1000px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 1000px) {
+
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(100%);
+    }
+
+    .carousel-inner .carousel-item-start.active,
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-100%);
+    }
+
+    .card {
+        width: 200px;
+    }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start {
+    transform: translateX(0);
+}

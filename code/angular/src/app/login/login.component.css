@@ -1,0 +1,336 @@
+div {
+  font-family: Goldleaf;
+}
+p {
+  margin-bottom: -0.1em;
+  margin-top: 0em;
+}
+.login-containter{
+    z-index: 1;
+    background-image: url("../../assets/backgrounds/BackgroundLogin.png");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover !important;
+    overflow: hidden;
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+.index{
+    z-index: 1;
+}
+
+#vetSplet{
+    margin-top: 30vh;
+    font-size: 80px;
+    font-family: Goldleaf;
+    text-align: center;
+}
+.buttonVet {
+  margin-top: 3vh;
+  position: absolute;
+  right: 52vw;
+  padding: 0px 35px 15px 35px;
+  font-family: Goldleaf;
+  font-size: 40px;
+  color: #ddfbf7;
+  background-color: #3ebdae;
+  opacity: 50%;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+}
+.buttonGost {
+  margin-top: 18vh;
+  position: absolute;
+  padding: 0px 35px 15px 35px;
+  font-family: Goldleaf;
+  font-size: 40px;
+  color: #f9f7ec;
+  background-color: #f3e38b;
+  opacity: 50%;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+}
+.buttonStr {
+  margin-top: 3vh;
+  position: absolute;
+  left: 52vw;
+  font-family: Goldleaf;
+  padding: 0px 42.25px 15px 42.25px;
+  font-size: 40px;
+  color: #f9f7ec;
+  background-color: #f3e38b;
+  opacity: 50%;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+}
+.buttonVet:hover {
+  background-color: #3ebdae;
+  opacity: 100%;
+  padding: 0px 20px 10px 20px;
+}
+.buttonVet .drugic {
+  display: none;
+}
+.buttonVet:hover .drugic {
+  display: block;
+  font-size: 20px;
+  font-family: "Josefin Sans Light";
+}
+.buttonGost:hover {
+  background-color: #f3e38b;
+  opacity: 100%;
+  padding: 0px 20px 10px 20px;
+}
+.buttonGost .drugic {
+  display: none;
+}
+.buttonGost:hover .drugic {
+  display: block;
+  font-size: 20px;
+  font-family: "Josefin Sans Light";
+}
+.buttonStr:hover {
+  background-color: #f3e38b;
+  opacity: 100%;
+  padding: 0px 20px 10px 20px;
+}
+.buttonStr .drugic {
+  display: none;
+}
+.buttonStr:hover .drugic {
+  display: block;
+  font-size: 20px;
+  font-family: "Josefin Sans Light";
+}
+#prijava {
+  position: relative;
+  font-family: "Josefin Sans Light";
+  color: #525252;
+  text-align: center;
+  font-size: 20px;
+  margin-top: 51vh;
+}
+.tukaj {
+  text-shadow: 3px 3px 5px rgba(82, 82, 82, 0.61);
+}
+.tukaj:hover {
+  font-weight: bold;
+}
+
+
+
+.animacija{
+  z-index: 0;
+  overflow: hidden !important;
+  /*height: 100vh !important;*/
+  /*width: 100vw !important;*/
+}
+.blob1,
+.blob2,
+.blob3,
+.blob4,
+.blob5,
+.blob6 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+body, html {
+  overflow: hidden;
+}
+.outline1
+{
+  position: absolute;
+  top: 5px;
+  right: 70px;
+  width: 550px;
+  height: 550px;
+  z-index: 3;
+}
+.outline2
+{
+  position: absolute;
+  top: 110px;
+  left: 20px;
+  width: 600px;
+  height: 600px;
+  z-index: 3;
+}
+.outline3
+{
+  position: absolute;
+  bottom: 110px;
+  left: 80px;
+  width: 600px;
+  height: 600px;
+  z-index: 3;
+}
+.outline4
+{
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  bottom: -10px;
+  right: -140px;
+  z-index: 3;
+}
+.outline5
+{
+  position: absolute;
+  top: 100px;
+  width: 400px;
+  height: 400px;
+  right: 80px;
+}
+.outline6
+{
+  position: absolute;
+  bottom: -40px;
+  right: 50px;
+  width: 400px;
+  height: 500px;
+}
+.blob1 {
+  position: absolute;
+  top: -420px;
+  right: -40px;
+  width: 650px;
+  height: 650px;
+}
+.blob2 {
+  position: absolute;
+  top: -420px;
+  left: -200px;
+  width: 700px;
+  height: 700px;
+}
+.blob3 {
+  position: absolute;
+  top: 350px;
+  left: -300px;
+  width: 800px;
+  height: 800px;
+}
+.blob4 {
+  position: absolute;
+  top: -250px;
+  left: 450px;
+  width: 350px;
+  height: 350px;
+}
+.blob5 {
+  position: absolute;
+  top: 50px;
+  right: -400px;
+  width: 530px;
+  height: 530px;
+}
+.blob6 {
+  position: absolute;
+  bottom: -280px;
+  right: -150px;
+  width: 500px;
+  height: 500px;
+}
+
+
+
+@media screen and (max-width: 900px) {
+  #prijava {
+    margin-top: 62vh;
+  }
+}
+@media screen and (max-width: 400px) {
+
+  .login-containter{
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+
+  .buttonVet,
+  .buttonGost,
+  .buttonStr {
+    font-size: large;
+    border-radius: 15px;
+  }
+  #navbar {
+    max-width: 350px;
+    font-size: x-small;
+  }
+  #navbar .btn {
+    margin-top: -1%;
+    background-color: #3ebdae;
+    opacity: 70%;
+    font-family: Goldleaf;
+    font-size: 140%;
+    color: #ddfbf7;
+    padding: 0px 2px 2px 2px;
+    border: none;
+    border-radius: 15px;
+  }
+  #vetSplet {
+    margin-top: 10vh;
+    font-size: 40px;
+    font-family: Goldleaf;
+    text-align: center;
+  }
+  #prijava {
+    margin-top: 59vh;
+  }
+
+  .blob1 {
+    position: absolute;
+    top: -400px;
+    right: -40px;
+    width: 650px;
+    height: 650px;
+  }
+  .blob2 {
+    position: absolute;
+    top: 220px;
+    left: 550px;
+    width: 700px;
+    height: 700px;
+  }
+  .blob3 {
+    position: absolute;
+    top: 850px;
+    left: -500px;
+    width: 800px;
+    height: 800px;
+  }
+  .blob4 {
+    position: absolute;
+    top: -150px;
+    left: 500px;
+    width: 350px;
+    height: 350px;
+  }
+  .blob5 {
+    position: absolute;
+    top: 1000px;
+    right: -550px;
+    width: 530px;
+    height: 530px;
+  }
+  .blob6 {
+    position: absolute;
+    bottom: -100px;
+    right: 180px;
+    width: 500px;
+    height: 500px;
+  }
+}

@@ -1,0 +1,1262 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VetSplet</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/132ed136f5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script src="koledar.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="stylesKoledar.css" />
+
+    <style type="text/css">
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 4px;
+        background: #ffffff;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: #f3e38b;
+        -webkit-border-radius: 1ex;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="scrollbar.css" />
+  </head>
+
+  <body background="Background.png">
+    <div class="container-fluid">
+      <div class="row g-5" style="height: 100%">
+        <div class="col-12 col-xl-4" style="flex-direction: column">
+          <div
+            class="card outercard left border-0"
+            style="
+              background-color: #fffadc !important;
+              border-radius: 2vw;
+              overflow: hidden;
+            "
+            id="card1"
+          >
+            <div style="overflow-x: hidden; overflow-y: auto">
+              <div class="card-body card-body-wrapper">
+                <div class="profileLocation">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-lg profile"
+                    style="
+                      overflow: hidden;
+                      border-radius: 2vh;
+                      height: 120px;
+                      width: 120px;
+                    "
+                    onclick="showPopupLogin()"
+                  >
+                    <span class="btn-text">VEČ INFO</span>
+                  </button>
+                  <div
+                    class="profileInformation"
+                    style="font-family: &quot;Josefin Sans&quot;, sans-serif"
+                  >
+                    <h3 style="line-height: 1">Peter Kos</h3>
+                    <p style="font-size: 25px; line-height: 0">18720</p>
+                  </div>
+                </div>
+
+                <div
+                  class="card first"
+                  style="
+                    background-color: #fcfaf4 !important;
+                    display: flex;
+                    overflow: hidden;
+                  "
+                >
+                  <div
+                    class="hiddenScrollbar"
+                    style="overflow: scroll; overflow-x: hidden; height: 100%"
+                  >
+                    <div
+                      class="headline"
+                      style="
+                        display: flex;
+                        font-family: &quot;Josefin Sans&quot;, sans-serif;
+                      "
+                    >
+                      <hr />
+                      <span> PRIHAJAJOČI DOGODKI </span>
+                      <hr />
+                    </div>
+                    <div class="table1" style="width: 100%">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Patient</th>
+                            <th scope="col">Appointment</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Doctor</th>
+                          </tr>
+                        </thead>
+                        <tbody id="previousAppointments"></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="card second"
+                  style="
+                    background-color: #fcfaf4 !important;
+                    display: flex;
+                    overflow: hidden;
+                  "
+                >
+                  <div
+                    class="hiddenScrollbar"
+                    style="overflow: scroll; overflow-x: hidden; height: 100%"
+                  >
+                    <div
+                      class="headline"
+                      style="
+                        display: flex;
+                        font-family: &quot;Josefin Sans&quot;, sans-serif;
+                      "
+                    >
+                      <hr />
+                      <span> PRETEKLI DOGODKI </span>
+                      <hr />
+                    </div>
+                    <div class="table1" style="width: 100% !important">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Patient</th>
+                            <th scope="col">Appointment</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Doctor</th>
+                          </tr>
+                        </thead>
+                        <tbody id="futureAppointments"></tbody>
+                      </table>
+                      <div
+                        class="noData"
+                        style="
+                          display: flex;
+                          align-items: flex-end;
+                          justify-content: center;
+                          font-family: &quot;Josefin Sans&quot;, sans-serif;
+                        "
+                      >
+                        <span
+                          >Prikaz informacij samo za zadnje tri mesece!</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="card third"
+                  style="background-color: #fcfaf4 !important; overflow: hidden"
+                >
+                  <div
+                    class="headline"
+                    style="
+                      display: flex;
+                      font-family: &quot;Josefin Sans&quot;, sans-serif;
+                    "
+                  >
+                    <hr />
+                    <span> INFORMACIJE ZA KLIENTE </span>
+                    <hr />
+                  </div>
+                  <div class="all">
+                    <div
+                      class="icons-vertical"
+                      id="icons"
+                      style="height: 80%; max-height: 300px"
+                    ></div>
+                    <div class="content">
+                      <div
+                        class="information"
+                        style="
+                          font-family: &quot;Josefin Sans&quot;, sans-serif;
+                        "
+                      >
+                        <b>VRSTA:</b><br />
+                        <b>SPOL:</b><br />
+                        <b>STAROST:</b><br />
+                        <b>PASMA:</b><br />
+                        <b>ŠT. POTNI LIST:</b><br />
+                        <b>ČIPIRAN:</b><br />
+                      </div>
+                      <div
+                        class="d-flex"
+                        style="
+                          height: 75%;
+                          color: #707070;
+                          margin-top: auto;
+                          margin-bottom: 3.8vh;
+                          margin-left: 0.7vw;
+                        "
+                      >
+                        <div class="vr"></div>
+                      </div>
+                      <div
+                        class="information"
+                        style="
+                          font-family: &quot;Josefin Sans&quot;, sans-serif;
+                          text-align: left;
+                          margin-left: 0.7vw;
+                        "
+                      >
+                        <span id="species"></span><br />
+                        <span id="gender"></span><br />
+                        <span id="age"></span><br />
+                        <span id="breed"></span><br />
+                        <span id="passport"></span><br />
+                        <span id="chipped"></span><br />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="informationIconButtons">
+                    <div class="add" onclick="showCreatePet()">
+                      <i
+                        class="fa-solid fa-plus plus"
+                        style="color: #2c2c2c; margin-left: 0.6em"
+                      ></i>
+                    </div>
+                    <div class="popup" id="popupConfirmation">
+                      <div
+                        style="
+                          display: flex;
+                          flex-direction: column;
+                          width: 50%;
+                          margin-left: auto;
+                          margin-right: auto;
+                        "
+                      >
+                        <span
+                          >Ste prepričani, da želite izbrisati tega pacienta?
+                        </span>
+                      </div>
+                      <div style="display: flex; flex-direction: row">
+                        <button
+                          class="btn btn-primary"
+                          style="
+                            margin-right: auto;
+                            margin-left: auto;
+                            background-color: #f3e38b;
+                            border-color: #f3e38b;
+                          "
+                          onclick="removeCat()"
+                        >
+                          Potrditev
+                        </button>
+                        <button
+                          class="btn btn-primary"
+                          style="
+                            margin-right: auto;
+                            margin-left: auto;
+                            background-color: #f3e38b;
+                            border-color: #f3e38b;
+                          "
+                          onclick="hidePopupConfirmation()"
+                        >
+                          Prekliči
+                        </button>
+                      </div>
+                    </div>
+                    <div class="delete" onclick="showPopupConfirmation()">
+                      <i
+                        class="fa-solid fa-eraser edit"
+                        style="color: #2c2c2c; margin-left: 0.5em"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-xl-4">
+          <div
+            class="card outercard center border-0"
+            style="
+              background-color: #effcfb !important;
+              border-radius: 2vw;
+              overflow: hidden;
+            "
+            id="card2"
+          >
+            <div style="overflow-x: hidden; overflow-y: auto">
+              <div
+                class="title"
+                style="
+                  display: flex;
+                  font-family: &quot;Josefin Sans&quot;, sans-serif;
+                  font-size: 22px;
+                  color: #3ebdae;
+                  margin-top: 2vh;
+                  justify-content: center;
+                "
+              >
+                <span style="flex-direction: row"
+                  ><strong>APPOINTMENT FOR: </strong></span
+                >
+
+                <div
+                  class="dropdown mt-3"
+                  style="
+                    flex-direction: row;
+                    margin-top: -5px !important;
+                    margin-left: 0.5vw;
+                  "
+                >
+                  <select
+                    class="btn btn-secondary"
+                    type="button"
+                    id="animalSelect"
+                  ></select>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="twoButtons">
+                  <button
+                    class="btn checkUp btn-primary btn-lg"
+                    onclick="setMeetingType(this)"
+                  >
+                    <img
+                      class="icon1"
+                      src="icons/checkup.png"
+                      alt="Your Image Description"
+                    />
+                    <span class="short-text">Pregled</span>
+                    <span class="full-text"
+                      >Zdravstveni pregledi in posvetovanja</span
+                    >
+                  </button>
+
+                  <button
+                    class="btn checkUp btn-primary btn-lg"
+                    onclick="setMeetingType(this)"
+                  >
+                    <img
+                      class="icon1"
+                      src="icons/washing.png"
+                      alt="Your Image Description"
+                    />
+                    <span class="short-text">Pranje</span>
+                    <span class="full-text">Pranje, sušenje in krtačenje</span>
+                  </button>
+
+                  <button
+                    class="btn checkUp btn-primary btn-lg"
+                    onclick="setMeetingType(this)"
+                  >
+                    <img
+                      class="icon1"
+                      src="icons/hygine.png"
+                      alt="Your Image Description"
+                    />
+                    <span class="short-text">Higiena</span>
+                    <span class="full-text"
+                      >Striženje nohtov, čiščenje ušes, bolhe itd.</span
+                    >
+                  </button>
+                </div>
+                <div class="twoButtons">
+                  <button
+                    class="btn checkUp btn-primary btn-lg"
+                    onclick="setMeetingType(this)"
+                  >
+                    <img
+                      class="icon1"
+                      src="icons/styling.png"
+                      alt="Your Image Description"
+                    />
+                    <span class="short-text">Striženje</span>
+                    <span class="full-text"
+                      >Pranje, sušenje, krtačenje in striženje</span
+                    >
+                  </button>
+
+                  <button
+                    class="btn checkUp btn-primary btn-lg"
+                    onclick="setMeetingType(this)"
+                  >
+                    <img
+                      class="icon1"
+                      src="icons/kastracija.png"
+                      alt="Your Image Description"
+                    />
+                    <span class="short-text">Kastracija</span>
+                    <span class="full-text"
+                      >Kirurški poseg odstranitev moda</span
+                    >
+                  </button>
+
+                  <button
+                    class="btn checkUp btn-primary btn-lg"
+                    onclick="setMeetingType(this)"
+                  >
+                    <img
+                      class="icon1"
+                      src="icons/sterelizacija.png"
+                      alt="Your Image Description"
+                    />
+                    <span class="short-text">Sterilizacija</span>
+                    <span class="full-text"
+                      >Kirurški poseg odstranitev jajčnike</span
+                    >
+                  </button>
+                </div>
+                <div class="twoButtons">
+                  <button
+                    class="btn checkUp left btn-primary btn-lg"
+                    onclick="setMeetingType(this)"
+                  >
+                    <img
+                      class="icon1"
+                      src="icons/bloodtest.png"
+                      alt="Your Image Description"
+                    />
+                    <span class="short-text">Krvne preiskave</span>
+                    <span class="full-text">Pogovor z veterinarjem</span>
+                  </button>
+
+                  <button
+                    class="btn checkUp right btn-primary btn-lg"
+                    onclick="setMeetingType(this)"
+                  >
+                    <img
+                      class="icon1"
+                      src="icons/vakcinacija.png"
+                      alt="Your Image Description"
+                    />
+                    <span class="short-text">Vakcinacija</span>
+                    <span class="full-text">Pogovor z veterinarjem</span>
+                  </button>
+                </div>
+
+                <div class="card zgCardD scroll">
+                  <div class="card-body text-center">
+                    <div class="button-container-calendar">
+                      <button id="previous" onclick="previous()">
+                        <span class="material-symbols-rounded">arrow_left</span>
+                      </button>
+                      <p id="monthAndYear"></p>
+                      <button id="next" onclick="next()">
+                        <span class="material-symbols-rounded"
+                          >arrow_right</span
+                        >
+                      </button>
+                    </div>
+                    <div class="wrapper" style="overflow: visible">
+                      <div class="container-calendar">
+                        <div id="right" style="width: 100%">
+                          <table
+                            class="table-calendar"
+                            id="calendar"
+                            data-lang="en"
+                            style="width: 100%"
+                          >
+                            <thead id="thead-month"></thead>
+                            <tbody id="calendar-body"></tbody>
+                          </table>
+                          <div class="footer-container-calendar">
+                            <p id="month"></p>
+                            <p id="year"></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="twoButtons">
+                  <button
+                    class="btn checkUp left btn-primary btn-lg"
+                    onclick="showPopupRequest()"
+                  >
+                    <img
+                      class="icon1"
+                      src="icons/consultations.png"
+                      alt="Your Image Description"
+                    />
+                    <span class="short-text"
+                      >Posvetovanje in zdravstveno tveganje</span
+                    >
+                    <span class="full-text">Pregled v nujnih primerih</span>
+                  </button>
+
+                  <button
+                    class="btn checkUp right btn-primary btn-lg"
+                    onclick="showPopupRequest()"
+                  >
+                    <img
+                      class="icon1"
+                      src="icons/operacije.png"
+                      alt="Your Image Description"
+                    />
+                    <span class="short-text">Operacije in nujno</span>
+                    <span class="full-text">Po posvetu z veterinarjem</span>
+                  </button>
+                </div>
+
+                <div class="twoButtons">
+                  <button
+                    class="btn checkUp left btn-primary btn-lg"
+                    onclick="showPopupRequest()"
+                  >
+                    <img
+                      class="icon1"
+                      src="icons/bandages.png"
+                      alt="Your Image Description"
+                    />
+                    <span class="short-text">Zunajne poškodbe</span>
+                    <span class="full-text">Telesne poškodbe</span>
+                  </button>
+
+                  <button
+                    class="btn checkUp right btn-primary btn-lg"
+                    onclick="showPopupRequest()"
+                  >
+                    <img
+                      class="icon1"
+                      src="icons/internal.png"
+                      alt="Your Image Description"
+                    />
+                    <span class="short-text">Notrajne poškodbe</span>
+                    <span class="full-text"
+                      >Težave s prebavili, tumorji itd.</span
+                    >
+                  </button>
+                </div>
+
+                <div class="twoButtons">
+                  <button
+                    class="btn checkUp left btn-primary btn-lg"
+                    onclick="setMeetingType(this)"
+                    style="margin-left: auto; margin-right: auto"
+                  >
+                    <img
+                      class="icon1"
+                      src="icons/other.png"
+                      alt="Your Image Description"
+                    />
+                    <span class="short-text">Ostalo</span>
+                    <a
+                      class="full-text"
+                      style="color: #454545"
+                      href="mailto:velichkovska.matea15@gmail.com"
+                      >Napišite osebno prošnjo, če je sprejeta in ustrezna</a
+                    >
+                  </button>
+                </div>
+
+                <div class="popup" id="createAppointment">
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1"
+                      >Napišite kratek opis za veterinarja:
+                    </label>
+                    <textarea
+                      class="form-control"
+                      id="exampleFormControlTextarea1"
+                      rows="3"
+                      maxlength="125"
+                    ></textarea>
+                  </div>
+                  <button
+                    class="btn btn-primary"
+                    style="
+                      margin-right: auto;
+                      margin-left: auto;
+                      margin-top: 8px;
+                      background-color: #3cb6a7;
+                      border-color: #3cb6a7;
+                    "
+                  >
+                    Potrditev
+                  </button>
+                  <button
+                    class="btn btn-primary"
+                    style="
+                      margin-right: auto;
+                      margin-left: auto;
+                      margin-top: 8px;
+                      background-color: #3cb6a7;
+                      border-color: #3cb6a7;
+                    "
+                    onclick="hidePopupRequest()"
+                  >
+                    Prekliči
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-xl-4">
+          <div
+            class="card outercard right border-0"
+            style="
+              background-color: #fefff9 !important;
+              border-radius: 2vw;
+              display: flex;
+              overflow: hidden;
+            "
+            id="card3"
+          >
+            <div style="overflow-x: hidden; overflow-y: auto">
+              <div
+                class="descClinic"
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  font-family: &quot;Josefin Sans&quot;, sans-serif;
+                  align-items: center;
+                  justify-content: center;
+                  margin-top: 5vh;
+                "
+              >
+                <h3 style="color: #3cb6a7 !important">
+                  <strong id="clinicTitle"></strong>
+                </h3>
+                <div
+                  class="singleLine"
+                  style="display: flex; flex-direction: row"
+                >
+                  <div class="oneLine">
+                    <i class="fa-solid fa-map-location-dot">
+                      <span
+                        style="
+                          font-size: 1.2em;
+                          font-family: &quot;Josefin Sans&quot;, sans-serif;
+                          font-weight: normal;
+                        "
+                        ><strong><u>Address: </u></strong
+                        ><span id="clinicAddress"></span
+                      ></span>
+                    </i>
+                  </div>
+                </div>
+                <div
+                  class="singleLine"
+                  style="display: flex; flex-direction: row"
+                >
+                  <div class="oneLine">
+                    <i class="fa-solid phone fa-phone">
+                      <span
+                        style="
+                          font-size: 1.2em;
+                          font-family: &quot;Josefin Sans&quot;, sans-serif;
+                          font-weight: normal;
+                        "
+                        ><strong><u>Phone: </u></strong
+                        ><span id="clinicPhone"></span
+                      ></span>
+                    </i>
+                  </div>
+                </div>
+                <div
+                  class="singleLine"
+                  style="display: flex; flex-direction: row"
+                >
+                  <div class="oneLine">
+                    <i class="fa-solid fa-envelope">
+                      <span
+                        style="
+                          font-size: 1.2em;
+                          font-family: &quot;Josefin Sans&quot;, sans-serif;
+                          font-weight: normal;
+                        "
+                        ><strong><u>Email: </u></strong
+                        ><span id="clinicEmail"></span
+                      ></span>
+                    </i>
+                  </div>
+                </div>
+
+                <div class="container" style="width: 100%">
+                  <div
+                    class="row"
+                    style="
+                      padding-top: 10px;
+                      margin-left: auto;
+                      margin-right: auto;
+                      margin-top: 2.5vh;
+                    "
+                  >
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4">
+                      <div
+                        class="list-group"
+                        id="drList"
+                        style="max-height: 168px; overflow: scroll"
+                      ></div>
+                    </div>
+                    <div
+                      class="col-md-6"
+                      id="drInfo"
+                      style="margin-top: auto; margin-bottom: auto"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="container text-center my-3"
+                style="display: flex; height: 256px"
+              >
+                <div class="row mx-auto my-auto justify-content-center">
+                  <div
+                    id="recipeCarousel"
+                    class="carousel slide"
+                    data-bs-ride="carousel"
+                  >
+                    <div
+                      class="carousel-inner"
+                      role="listbox"
+                      id="carouselItems"
+                    ></div>
+                    <a
+                      class="carousel-control-prev bg-transparent w-aut"
+                      href="#recipeCarousel"
+                      role="button"
+                      data-bs-slide="prev"
+                    >
+                      <span
+                        class="carousel-control-prev-icon"
+                        aria-hidden="true"
+                      ></span>
+                    </a>
+                    <a
+                      class="carousel-control-next bg-transparent w-aut"
+                      href="#recipeCarousel"
+                      role="button"
+                      data-bs-slide="next"
+                    >
+                      <span
+                        class="carousel-control-next-icon"
+                        aria-hidden="true"
+                      ></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="card second"
+                style="
+                  background-color: #fcfaf4 !important;
+                  display: flex;
+                  overflow: hidden;
+                  height: 200px;
+                "
+              >
+                <div
+                  class="hiddenScrollbar"
+                  style="overflow: scroll; overflow-x: hidden; height: 100%"
+                >
+                  <div
+                    class="headline"
+                    style="
+                      display: flex;
+                      font-family: &quot;Josefin Sans&quot;, sans-serif;
+                    "
+                  >
+                    <hr />
+                    <span> PODATKI O PACIENTU </span>
+                    <hr />
+                  </div>
+                  <div class="table1" style="width: 100% !important">
+                    <table class="table patient table-bordered">
+                      <thead>
+                        <tr>
+                          <th scope="col">Pacient</th>
+                          <th scope="col">Klinika</th>
+                          <th scope="col">Glavni veterinar pacienta</th>
+                        </tr>
+                      </thead>
+                      <tbody id="patientInfos">
+                        <tr>
+                          <td>Bimi</td>
+                          <td style="padding: 4px">
+                            <div
+                              class="changeClinic"
+                              style="
+                                font-family: &quot;Josefin Sans&quot;,
+                                  sans-serif;
+                                text-align: center;
+                              "
+                            >
+                              <div class="dropdown clinics mt-3">
+                                <div class="dropdown mt-3">
+                                  <select
+                                    class="btn btn-secondary dropdown-toggle"
+                                    type="button"
+                                    id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown"
+                                    style="
+                                      justify-content: center;
+                                      margin-top: -2vh;
+                                      background-color: #fcfaf4 !important;
+                                      color: #454545 !important;
+                                    "
+                                  >
+                                    <option selected disabled>
+                                      Živalstvo Zdravo
+                                    </option>
+                                    <option>DomačiVet</option>
+                                    <option>LjubljanaVet</option>
+                                    <option>SrčnaVeterina</option>
+                                    <option>VetVeselje</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>Dr. Ana Kovač</td>
+                        </tr>
+                        <tr>
+                          <td>Nona</td>
+                          <td style="padding: 4px">
+                            <div
+                              class="changeClinic"
+                              style="
+                                font-family: &quot;Josefin Sans&quot;,
+                                  sans-serif;
+                                text-align: center;
+                              "
+                            >
+                              <div class="dropdown clinics mt-3">
+                                <div class="dropdown mt-3">
+                                  <select
+                                    class="btn btn-secondary dropdown-toggle"
+                                    type="button"
+                                    id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown"
+                                    style="
+                                      justify-content: center;
+                                      margin-top: -2vh;
+                                      background-color: #fcfaf4 !important;
+                                      color: #454545 !important;
+                                    "
+                                  >
+                                    <option selected disabled>DomačiVet</option>
+                                    <option>Živalstvo Zdravo</option>
+                                    <option>LjubljanaVet</option>
+                                    <option>SrčnaVeterina</option>
+                                    <option>VetVeselje</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>Dr. Marko Orlen</td>
+                        </tr>
+                        <tr>
+                          <td>Lili</td>
+                          <td style="padding: 4px">
+                            <div
+                              class="changeClinic"
+                              style="
+                                font-family: &quot;Josefin Sans&quot;,
+                                  sans-serif;
+                                text-align: center;
+                              "
+                            >
+                              <div class="dropdown clinics mt-3">
+                                <div class="dropdown mt-3">
+                                  <select
+                                    class="btn btn-secondary dropdown-toggle"
+                                    type="button"
+                                    id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown"
+                                    style="
+                                      justify-content: center;
+                                      margin-top: -2vh;
+                                      background-color: #fcfaf4 !important;
+                                      color: #454545 !important;
+                                    "
+                                  >
+                                    <option selected disabled>
+                                      Živalstvo Zdravo
+                                    </option>
+                                    <option>DomačiVet</option>
+                                    <option>LjubljanaVet</option>
+                                    <option>SrčnaVeterina</option>
+                                    <option>VetVeselje</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>Dr. Simon Novak</td>
+                        </tr>
+                        <tr>
+                          <td>Rex</td>
+                          <td style="padding: 4px">
+                            <div
+                              class="changeClinic"
+                              style="
+                                font-family: &quot;Josefin Sans&quot;,
+                                  sans-serif;
+                                text-align: center;
+                              "
+                            >
+                              <div class="dropdown clinics mt-3">
+                                <div class="dropdown mt-3">
+                                  <select
+                                    class="btn btn-secondary dropdown-toggle"
+                                    type="button"
+                                    id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown"
+                                    style="
+                                      justify-content: center;
+                                      margin-top: -2vh;
+                                      background-color: #fcfaf4 !important;
+                                      color: #454545 !important;
+                                    "
+                                  >
+                                    <option selected disabled>
+                                      Živalstvo Zdravo
+                                    </option>
+                                    <option>DomačiVet</option>
+                                    <option>LjubljanaVet</option>
+                                    <option>SrčnaVeterina</option>
+                                    <option>VetVeselje</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>Dr. Nina Mlinar</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div
+                      class="noData"
+                      style="
+                        display: flex;
+                        align-items: flex-end;
+                        justify-content: center;
+                        font-family: &quot;Josefin Sans&quot;, sans-serif;
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: row">
+                <button
+                  class="btn btn-primary"
+                  style="
+                    margin-top: 1vh;
+                    margin-right: auto;
+                    margin-left: auto;
+                    background-color: #fcfaf4;
+                    border-color: #d7d7d7;
+                    color: #6c6c6c;
+                  "
+                >
+                  Potrditev
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fact">
+          <p id="fact"></p>
+        </div>
+
+        <div class="popup" id="popup">
+          <div style="margin-right: auto; margin-left: auto">
+            <span id="popupDateText"></span>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              width: 50%;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+            <select id="timeSelect">
+              <option>09:30</option>
+              <option>10:45</option>
+              <option>13:00</option>
+              <option>14:30</option>
+              <option>15:00</option>
+              <option>16:45</option>
+            </select>
+            <span>Izberite termin za:</span>
+            <span id="meetingType"></span>
+          </div>
+          <div style="display: flex; flex-direction: row">
+            <button
+              class="btn btn-primary"
+              style="
+                margin-right: auto;
+                margin-left: auto;
+                background-color: #3cb6a7;
+                border-color: #3cb6a7;
+              "
+              onclick="addReservation()"
+            >
+              Potrditev
+            </button>
+            <button
+              class="btn btn-primary"
+              style="
+                margin-right: auto;
+                margin-left: auto;
+                background-color: #3cb6a7;
+                border-color: #3cb6a7;
+              "
+              onclick="hidePopup()"
+            >
+              Prekliči
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="popup"
+          id="popupCreatePet"
+          style="
+            width: 600px;
+            bottom: 20%;
+            left: 11.6%;
+            background-color: #fffdf4;
+          "
+        >
+          <div class="container" style="padding: 30px">
+            <div class="pointer" onclick="hidePopupPet()">
+              <i
+                class="fa-solid fa-x"
+                style="position: absolute; top: 10px; right: 10px"
+              ></i>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div>
+                  <label style="width: 100%">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Name"
+                    id="name"
+                    required
+                  />
+                </div>
+                <div>
+                  <label style="width: 100%">VRSTA</label>
+                  <select class="form-control" id="vrsta">
+                    <option selected value="cat">Cat</option>
+                    <option value="dog">Dog</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="width: 100%">SPOL</label>
+                  <select class="form-control" id="spol">
+                    <option selected value="male">male</option>
+                    <option value="female">female</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Date of birth</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    placeholder="STAROST"
+                    id="starost"
+                    required
+                  />
+                </div>
+                <div>
+                  <label>PASMA</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="PASMA"
+                    id="pasma"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div>
+                  <label>ŠT. POTNI LIST</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="ŠT. POTNI LIST"
+                    id="potni"
+                    required
+                  />
+                </div>
+                <div>
+                  <label>ČIPIRAN</label>
+                  <select class="form-control" id="cipiran">
+                    <option selected value="true">Da</option>
+                    <option value="false">Ne</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="width: 100%">Clinic</label>
+                  <select class="form-control" id="clinic">
+                    <option selected value="male">First</option>
+                    <option value="female">second</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="margin-top: 30px">
+              <div class="col-md-10"></div>
+              <div class="col-md-1">
+                <button
+                  class="btn btn-primary"
+                  onclick="createPet()"
+                  style="background-color: #f3e38b; border-color: #707070"
+                >
+                  Potrditev
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="popuplogin">
+          <div style="margin-right: auto; margin-left: auto">
+            <span id="popupLoginText"></span>
+          </div>
+          <span style="text-align: center; color: #f8e477"
+            ><strong>Nastavitve </strong></span
+          >
+          <div
+            class="popupGroup"
+            style="
+              display: flex;
+              flex-direction: column;
+              width: 100%;
+              text-align: justify;
+            "
+          >
+            <div style="display: flex; flex-direction: row">
+              <div class="form-group">
+                <label style="width: 100%">Uporabniško ime:</label>
+                <input
+                  type="text"
+                  class="form-control popupInput"
+                  id="profileNameInput"
+                />
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: row">
+              <div class="form-group">
+                <label style="width: 100%">E-mail:</label>
+                <input
+                  type="text"
+                  class="form-control popupInput"
+                  id="profileEmailInput"
+                />
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: row">
+              <div class="form-group">
+                <label style="width: 100%">Telefonska št.:</label>
+                <input
+                  type="text"
+                  class="form-control popupInput"
+                  id="profilePhoneInput"
+                />
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: row">
+              <div class="form-group">
+                <label style="width: 100%">Staro geslo:</label>
+                <input
+                  type="password"
+                  class="form-control popupInput"
+                  id="profilepasswordoldInput"
+                />
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: row">
+              <div class="form-group">
+                <label style="width: 100%">Novo geslo:</label>
+                <input
+                  type="password"
+                  class="form-control popupInput"
+                  id="profilerepasswordnewInput"
+                />
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: row">
+            <button
+              class="btn btn-primary"
+              style="
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: #f3e38b;
+                border-color: #f3e38b;
+                width: 60px;
+                height: 30px;
+                font-size: 13px;
+                padding-left: 0;
+                padding-right: 0;
+              "
+              onclick="changeUserData()"
+            >
+              Potrditev
+            </button>
+            <div class="pointer" onclick="hidePopupLogin()">
+              <i
+                class="fa-solid fa-x"
+                style="position: absolute; top: 10px; right: 10px"
+              ></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="transparentFilter hide" id="transpFilter"></div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>

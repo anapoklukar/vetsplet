@@ -1,0 +1,39 @@
+<div class="existing-login-container">
+  <app-navbar></app-navbar>
+  <app-logo></app-logo>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="container" style="width: 30%">
+      <div class="wrap" style="display: flex; flex-direction: column; margin-right: auto; margin-left: auto">
+    <div class="mb-3">
+      <label for="UI" class="form-label">{{
+        "emailOrUsernameLabel" | translatePipe
+      }}</label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        formControlName="username"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="geslo" class="form-label">{{
+        "passwordLabel" | translatePipe
+      }}</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        formControlName="password"
+      />
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-primary">
+        {{ "continueButton" | translatePipe }}
+      </button>
+    </div>
+  </div>
+</div>
+  </form>
+</div>

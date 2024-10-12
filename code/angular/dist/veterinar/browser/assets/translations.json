@@ -1,0 +1,40 @@
+{
+  "slo": {
+    "nameLabel": "Ime:",
+    "surnameLabel": "Priimek:",
+    "usernameLabel": "Uporabniško ime:",
+    "emailLabel": "E-mail:",
+    "phoneNumberLabel": "Telefonska številka:",
+    "passwordLabel": "Geslo:",
+    "confirmPasswordLabel": "Potrdite geslo:",
+    "continueButton": "Nadaljuj",
+    "optionalText": "Če nimate lahko pustite prazno.",
+    "clinicNameLabel": "Ime ambulante:",
+    "addressLabel": "Naslov:",
+    "vetNameLabel": "Ime in priimek veterinarja:",
+    "clinicDescriptionLabel": "Opis klinike:",
+    "contactLabel": "Kontakt:",
+    "repeatPasswordLabel": "Ponovitev Gesla:",
+    "notRegisteredLabel": "Ali vaša ambulanta še ni registrirana? Kliknite",
+    "hereLabel": "TUKAJ",
+    "emailOrUsernameLabel": "E-mail ali uporabniško ime:"
+  },
+  "en": {
+    "nameLabel": "Name:",
+    "surnameLabel": "Surname:",
+    "usernameLabel": "Username:",
+    "emailLabel": "E-mail:",
+    "phoneNumberLabel": "Phone Number:",
+    "passwordLabel": "Password:",
+    "confirmPasswordLabel": "Confirm Password:",
+    "continueButton": "Continue",
+    "optionalText": "You can leave it empty if you don't have one.",
+    "clinicNameLabel": "Clinic Name:",
+    "addressLabel": "Address:",
+    "vetNameLabel": "Veterinarian's Name and Surname:",
+    "clinicDescriptionLabel": "Clinic Description:",
+    "notRegisteredLabel": "Is your clinic not yet registered? Click",
+    "hereLabel": "HERE",
+    "emailOrUsernameLabel": "E-mail or Username:"
+  }
+}

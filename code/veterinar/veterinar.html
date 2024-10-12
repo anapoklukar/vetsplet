@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veterinar</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" type="text/css" href="stylesVeterinar.css" />
+    <link rel="stylesheet" type="text/css" href="stylesKoledar.css" />
+    <link rel="stylesheet" type="text/css" href="scrollbar.css" />
+    <style type="text/css">
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 4px;
+        background: #ffffff;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: #f3e38b;
+        -webkit-border-radius: 1ex;
+      }
+    </style>
+
+    <!--GOOGLE FONTI za ikone-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+
+    <script src="koledar.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/132ed136f5.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row g-0 row-cols-lg-2 row-cols-sm-1 row-cols-1">
+        <div class="col">
+          <div class="card zgCardL hiddenScrollbar">
+            <div class="row g-0 row-cols-lg-2 row-cols-sm-1 row-cols-1">
+              <div class="card-body">
+                <div class="profileLocation" style="margin-top: -0.5vh">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-lg profile"
+                    style="
+                      overflow: hidden;
+                      border-radius: 2vh;
+                      height: 70px;
+                      width: 70px;
+                    "
+                    onclick="showPopupLogin()"
+                  >
+                    <span class="btn-text">VEČ INFO</span>
+                  </button>
+                  <div
+                    class="profileInformation"
+                    style="font-family: &quot;Josefin Sans&quot;, sans-serif"
+                  >
+                    <h5 style="line-height: 1">Nina Mlinar</h5>
+                    <p style="font-size: 15px; line-height: 0">12345</p>
+                  </div>
+                </div>
+
+                <div id="popuplogin">
+                  <div style="margin-right: auto; margin-left: auto">
+                    <span id="popupLoginText"></span>
+                  </div>
+                  <span style="text-align: center; color: #3ebdae"
+                    ><strong>Nastavitve </strong></span
+                  >
+                  <div
+                    class="popupGroup"
+                    style="
+                      display: flex;
+                      flex-direction: column;
+                      width: 100%;
+                      text-align: justify;
+                    "
+                  >
+                    <div style="display: flex; flex-direction: row">
+                      <div class="form-group">
+                        <label style="width: 100%">Uporabniško ime:</label>
+                        <input
+                          type="text"
+                          class="form-control popupInput"
+                          id="profileNameInput"
+                        />
+                      </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row">
+                      <div class="form-group">
+                        <label style="width: 100%">E-mail:</label>
+                        <input
+                          type="text"
+                          class="form-control popupInput"
+                          id="profileEmailInput"
+                        />
+                      </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row">
+                      <div class="form-group">
+                        <label style="width: 100%">Telefonska št.:</label>
+                        <input
+                          type="text"
+                          class="form-control popupInput"
+                          id="profilePhoneInput"
+                        />
+                      </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row">
+                      <div class="form-group">
+                        <label style="width: 100%">Staro geslo:</label>
+                        <input
+                          type="password"
+                          class="form-control popupInput"
+                          id="profilepasswordoldInput"
+                        />
+                      </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row">
+                      <div class="form-group">
+                        <label style="width: 100%">Novo geslo:</label>
+                        <input
+                          type="password"
+                          class="form-control popupInput"
+                          id="profilerepasswordnewInput"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div id="potrdi" style="display: flex; flex-direction: row">
+                    <button
+                      id="gumbPotrdi"
+                      class="btn btn-primary"
+                      onclick="changeUserData()"
+                    >
+                      Potrditev
+                    </button>
+                    <div class="pointer" onclick="hidePopupLogin()">
+                      <i
+                        class="fa-solid fa-x"
+                        style="position: absolute; top: 10px; right: 10px"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="transparentFilter hide" id="transpFilter"></div>
+                <div class="row">
+                  <div class="card LcardLevo">
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        <div class="input-group mb-3">
+                          <button
+                            id="drpdwn"
+                            class="btn btn-outline-secondary dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            Sortiraj po
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li>
+                              <button
+                                id="str"
+                                class="dropdown-item"
+                                type="button"
+                                onclick="izberiStr()"
+                              >
+                                Stranka
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                id="pacient"
+                                class="dropdown-item"
+                                type="button"
+                                onclick="izberiPac()"
+                              >
+                                Pacient
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                id="vet"
+                                class="dropdown-item"
+                                type="button"
+                                onclick="izberiVet()"
+                              >
+                                Veterinar
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                id="vetAmb"
+                                class="dropdown-item"
+                                type="button"
+                                onclick="izberiVetAmb()"
+                              >
+                                Veterinarska ambulanta
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                id="nega"
+                                class="dropdown-item"
+                                type="button"
+                                onclick="izberiNega()"
+                              >
+                                Nega
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                id="dat"
+                                class="dropdown-item"
+                                type="button"
+                                onclick="izberiDat()"
+                              >
+                                Datum
+                              </button>
+                            </li>
+                          </ul>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="sortiraj"
+                            value="predlagam da damo autocomplete iz baze ko bo"
+                          />
+                          <button
+                            id="drpdwn1"
+                            class="btn btn-outline-secondary dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            Žival
+                          </button>
+                          <ul class="dropdown-menu" id="zivali">
+                            <li>
+                              <button
+                                id="bimi"
+                                class="dropdown-item"
+                                type="button"
+                                onclick="izberiBimi()"
+                              >
+                                Bimi
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                id="nona"
+                                class="dropdown-item"
+                                type="button"
+                                onclick="izberiNona()"
+                              >
+                                Nona
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                id="lili"
+                                class="dropdown-item"
+                                type="button"
+                                onclick="izberiLili()"
+                              >
+                                Lili
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                id="max"
+                                class="dropdown-item"
+                                type="button"
+                                onclick="izberiMax()"
+                              >
+                                Max
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                id="rex"
+                                class="dropdown-item"
+                                type="button"
+                                onclick="izberiRex()"
+                              >
+                                Rex
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </h5>
+                      <div class="card-text" id="živaliTabela">
+                        <table
+                          id="sortByStr"
+                          class="table table-sm table-bordered"
+                        ></table>
+                        <table
+                          id="sortByPac"
+                          class="table table-sm table-bordered"
+                        ></table>
+                        <table
+                          id="sortByVet"
+                          class="table table-sm table-bordered"
+                        ></table>
+                        <table
+                          id="sortByVetAmb"
+                          class="table table-sm table-bordered"
+                        ></table>
+                        <table
+                          id="sortByNega"
+                          class="table table-sm table-bordered"
+                        ></table>
+                        <table
+                          id="sortByDatum"
+                          class="table table-sm table-bordered"
+                        ></table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card LcardDesno">
+                    <div class="card-body">
+                      <div class="card-text">
+                        <div id="notif">
+                          <span
+                            id="bell"
+                            class="material-symbols-outlined"
+                            onclick="pokaziSprejmiNovVet()"
+                            >notifications</span
+                          >
+                        </div>
+                        <div id="alertPopup">
+                          <div class="pointer" onclick="skrijSprejmiNovVet()">
+                            <i
+                              class="fa-solid fa-x"
+                              style="
+                                margin-top: 10px;
+                                margin-right: 10px;
+                                float: right;
+                              "
+                            ></i>
+                          </div>
+                        </div>
+                        <div class="ikone">
+                          <div>
+                            <input
+                              type="radio"
+                              class="btn-check icon"
+                              name="options-base"
+                              id="ik1"
+                              autocomplete="off"
+                              onclick="posvInZdrTveganje()"
+                            />
+                            <label class="btn" for="ik1">
+                              <img
+                                class="icon1"
+                                src="icons/consultations.png"
+                                alt="Your Image Description"
+                              />
+                              <span class="line">|</span>
+                              <span class="opis" id="op1"
+                                >POSVETOVANJE IN ZDRAVSTVENO TVEGANJE</span
+                              >
+                            </label>
+                          </div>
+                          <div>
+                            <input
+                              type="radio"
+                              class="btn-check icon"
+                              name="options-base"
+                              id="ik2"
+                              autocomplete="off"
+                              onclick="operacijeInNujno()"
+                            />
+                            <label class="btn" for="ik2">
+                              <img
+                                class="icon1"
+                                src="icons/operacije.png"
+                                alt="Your Image Description"
+                              />
+                              <span class="line">|</span>
+                              <span class="opis opis2">OPERACIJE IN NUJNO</span>
+                            </label>
+                          </div>
+                          <div>
+                            <input
+                              type="radio"
+                              class="btn-check icon"
+                              name="options-base"
+                              id="ik3"
+                              autocomplete="off"
+                              onclick="zunanjePoskodbe()"
+                            />
+                            <label class="btn" for="ik3">
+                              <img
+                                class="icon1"
+                                src="icons/bandages.png"
+                                alt="Your Image Description"
+                              />
+                              <span class="line">|</span>
+                              <span class="opis opis2">ZUNANJE POŠKODBE</span>
+                            </label>
+                          </div>
+                          <div>
+                            <input
+                              type="radio"
+                              class="btn-check icon"
+                              name="options-base"
+                              id="ik4"
+                              autocomplete="off"
+                              onclick="notranjePoskodbe()"
+                            />
+                            <label class="btn" for="ik4">
+                              <img
+                                class="icon1"
+                                src="icons/internal.png"
+                                alt="Your Image Description"
+                              />
+                              <span class="line">|</span>
+                              <span class="opis opis2">NOTRANJE POŠKODBE</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div id="popupReq1">
+                          <div style="flex-direction: column">
+                            <div id="zahteva">
+                              <span style="font-weight: bold">Zahteva:</span
+                              ><br />
+                              Odstranitev šivov po operaciji.
+                            </div>
+                            <div class="gumba">
+                              <button
+                                class="btn btn-primary gumb1"
+                                onclick="remZavrni()"
+                              >
+                                Izberi datum
+                              </button>
+                              <button
+                                class="btn btn-primary gumb2"
+                                onclick="remIzberi()"
+                              >
+                                Zavrni
+                              </button>
+                              <div id="izberiDat" class="izberiDat">
+                                Preverite koledar za proste datume.
+                              </div>
+                              <div class="zavrni" id="zav">
+                                <span class="odgovorStr"
+                                  >Odgovorite stranki:</span
+                                >
+                                <textarea
+                                  class="card-text odgovor"
+                                  id="zavrni"
+                                  name="zavrnjenMail"
+                                ></textarea>
+                                <div class="pošlji">
+                                  <button
+                                    type="submit"
+                                    class="btn btn-primary gumb3"
+                                    id="pošlji"
+                                    onclick="pošlji1()"
+                                  >
+                                    <a id="komuPosljem"> Pošlji </a>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="pointer" onclick="hidePopupReq1()">
+                              <i
+                                class="fa-solid fa-x"
+                                style="
+                                  position: absolute;
+                                  top: 10px;
+                                  right: 10px;
+                                "
+                              ></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="popupReq2"></div>
+                        <div id="popupReq3"></div>
+                        <div id="popupReq4"></div>
+                        <table
+                          id="posInZdrTveganjeTab"
+                          class="table table-sm table-bordered desnaTab"
+                        ></table>
+                        <table
+                          id="operacijeInNujnoTab"
+                          class="table table-sm table-bordered desnaTab"
+                        ></table>
+                        <table
+                          id="zunanjePoskodbeTab"
+                          class="table table-sm table-bordered desnaTab"
+                        ></table>
+                        <table
+                          id="notranjePoskodbeTab"
+                          class="table table-sm table-bordered desnaTab"
+                        ></table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card zgCardD hiddenScrollbar">
+            <div class="card-body text-center">
+              <div
+                class="btn-group"
+                role="group"
+                aria-label="Basic radio toggle button group"
+              >
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="btnkoledar"
+                  id="btnzasebno"
+                  autocomplete="off"
+                  checked
+                />
+                <label
+                  class="btn btn-outline-primary"
+                  for="btnzasebno"
+                  style="font-weight: bold"
+                  >ZASEBNO</label
+                >
+
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="btnkoledar"
+                  id="btnskupno"
+                  autocomplete="off"
+                />
+                <label
+                  class="btn btn-outline-primary"
+                  for="btnskupno"
+                  style="font-weight: bold"
+                  >SKUPNO</label
+                >
+              </div>
+              <div class="card-body text-center">
+                <div class="button-container-calendar">
+                  <button id="previous" onclick="previous()">
+                    <span class="material-symbols-rounded">arrow_left</span>
+                  </button>
+                  <p id="monthAndYear"></p>
+                  <button id="next" onclick="next()">
+                    <span class="material-symbols-rounded">arrow_right</span>
+                  </button>
+                </div>
+                <div class="wrapper" style="overflow: visible">
+                  <div class="container-calendar">
+                    <div id="right" style="width: 100%">
+                      <table
+                        class="table-calendar"
+                        id="calendar"
+                        data-lang="en"
+                        style="width: 100%"
+                      >
+                        <thead id="thead-month"></thead>
+                        <tbody id="calendar-body"></tbody>
+                      </table>
+                      <div class="footer-container-calendar">
+                        <p id="month"></p>
+                        <p id="year"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card spCard">
+        <div class="card-body">
+          <p id="eventDate"></p>
+          <div id="left">
+            <div class="btnContainer">
+              <button
+                type="button"
+                class="buttonDodaj position-absolute top-50 start-50 translate-middle"
+                id="btnDodaj"
+                onclick="dodajDog(); minDatum()"
+              >
+                <span class="material-symbols-outlined">add</span>
+              </button>
+            </div>
+            <div
+              id="reminder-section"
+              style="display: none"
+              class="hiddenScrollbar"
+            >
+              <table class="table" id="tabelaDodaj">
+                <div>
+                  <input
+                    type="text"
+                    id="lastnik"
+                    placeholder="LASTNIK"
+                    contenteditable
+                  />
+                  <input type="text" id="žival" placeholder="ŽIVAL" />
+                  <input type="text" id="naročen" placeholder="NAROČEN NA" />
+                  <input
+                    type="time"
+                    id="ura"
+                    min="07:00"
+                    step="900"
+                    value="07:00"
+                  />
+                  <input
+                    type="datetime-local"
+                    id="ustvarjeno"
+                    value="2020-01-01, 00:00"
+                    disabled
+                    style="width: 10vw"
+                  />
+                  <input type="text" id="opombe" placeholder="OPOMBE" />
+                  <input type="text" id="ustvaril" placeholder="USTVARIL" />
+                  <input
+                    type="button"
+                    id="addEvent"
+                    class="buttonDodaj1"
+                    onclick="add(); addEvent(); minDatum()"
+                    value="+"
+                  />
+                </div>
+              </table>
+              <h3>Naročene stranke</h3>
+              <div>
+                <table
+                  class="table table-sm table-bordered"
+                  id="output"
+                  style="width: 70vw"
+                >
+                  <tr>
+                    <th>DATUM</th>
+                    <th>LASTNIK</th>
+                    <th>ŽIVAL</th>
+                    <th>NAROČEN NA</th>
+                    <th>URA</th>
+                    <th>USTVARJENO</th>
+                    <th>OPOMBE</th>
+                    <th>USTVARIL</th>
+                    <th>ODSTRANI</th>
+                  </tr>
+                </table>
+                <!-- List to display reminders -->
+                <ul id="reminderList" style="display: none"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

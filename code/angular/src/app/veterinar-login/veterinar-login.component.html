@@ -1,0 +1,75 @@
+<div class="login-veterinar-container">
+  <app-navbar></app-navbar>
+  <app-logo></app-logo>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="container">
+      <div class="row g-0 row-cols-lg-2 row-cols-sm-1 row-cols-1">
+        <div class="col g-0 col-rows-lg-5 col-rows-sm-1 col-rows-1" style="
+            display: flex;
+            flex-direction: column;
+            margin-right: auto;
+            margin-left: auto;
+          ">
+          <div class="row g-0 row-cols-lg-2 row-cols-sm-1 row-cols-1">
+            <div class="col">
+              <label for="ime-url" class="form-label ime" style="display: inline">{{ "nameLabel" | translatePipe
+                }}</label>
+              <input type="text" class="form-control" id="ime-url" formControlName="ime" />
+            </div>
+
+            <div class="col">
+              <label for="priimek-url" class="form-label priimek" style="display: inline">{{ "surnameLabel" |
+                translatePipe }}</label>
+              <input type="text" class="form-control" id="priimek-url" formControlName="priimek" />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="uporabniskoIme" class="form-label">{{
+              "usernameLabel" | translatePipe
+              }}</label>
+            <input type="text" class="form-control" id="uporabniskoIme" formControlName="uporabniskoIme" />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">{{
+              "emailLabel" | translatePipe
+              }}</label>
+            <input type="email" class="form-control" id="email" formControlName="email" />
+          </div>
+          <div class="mb-3">
+            <label for="telNumber" class="form-label">{{
+              "contactLabel" | translatePipe
+              }}</label>
+            <input type="text" class="form-control" id="telNumber" formControlName="telNumber" />
+          </div>
+          <div class="mb-3">
+            <label for="geslo" class="form-label">{{
+              "passwordLabel" | translatePipe
+              }}</label>
+            <input type="password" class="form-control" id="geslo" formControlName="geslo" />
+          </div>
+          <div class="mb-3">
+            <label for="ponovitevGesla" class="form-label">{{
+              "repeatPasswordLabel" | translatePipe
+              }}</label>
+            <input type="password" class="form-control" id="ponovitevGesla" formControlName="ponovitevGesla" />
+          </div>
+          <div class="mb-3">
+            <label for="nazivAmbulante" class="form-label">{{
+              "clinicNameLabel" | translatePipe
+              }}</label>
+            <input type="text" class="form-control" id="nazivAmbulante" formControlName="nazivAmbulante" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">
+      {{ "continueButton" | translatePipe }}
+    </button>
+    <p id="prijava">
+      {{ "notRegisteredLabel" | translatePipe }}
+      <span type="submit" (click)="navigateTo('klinika-registracija')" class="tukaj">{{ "hereLabel" | translatePipe
+        }}</span>
+    </p>
+  </form>
+</div>

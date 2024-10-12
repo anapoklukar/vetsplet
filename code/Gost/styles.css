@@ -1,0 +1,202 @@
+@font-face {
+    font-family: Goldleaf;
+    src: url(GOLDLEAF-BOLD-PERSONAL-USE.ttf);
+}
+@font-face {
+    font-family: "Josefin Sans Light";
+    src: url(JosefinSans-Light.ttf);
+}
+
+body{
+    background-image: url("Background.png");
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+}
+
+.fuse:hover .btn{
+    opacity: 100% !important;
+    border-color: transparent !important;
+    filter:drop-shadow(8px 8px 10px gray)
+}
+
+.fuse:hover .fa-solid{
+    display: none !important;
+}
+
+.fuse{
+    width: 220px;
+    height: 220px;
+    border-radius: 100%;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.txt {
+    height: 150px;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.icon {
+    font-size: 50px;
+    opacity: 100% !important;
+    color: #58a49a;
+    position: absolute;
+    left: 90px;
+    top: 85px;
+}
+
+.circlebtn {
+    border-radius: 100% !important;
+    height: 220px;
+    width: 220px;
+    opacity: 30%;
+    filter: blur(2px);
+    border-color: #58a49a;
+}
+
+.doctor {
+    background-image: url(circle3.png);
+}
+
+.equipment {
+    background-image: url(circle1.png);
+}
+
+.calendar {
+    background-image: url(circle2.png);
+}
+
+.graph {
+    background-color: white !important;
+}
+
+.iconrow {
+    display: flex;
+    flex-direction: row;
+    height: 370px;
+}
+
+.btn {
+    margin-top: -1%;
+    background-color: #8cc4bc ;
+    opacity: 70%;
+    font-family: Goldleaf;
+    font-size: 140%;
+    color: #e0f4e4;
+    padding: 0px 15px 5px 15px;
+    border: none;
+    border-radius: 15px;
+}
+
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #343936
+}
+  
+.hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #58a49a;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+  
+.hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.btn:hover{
+    color: #DDFBF7;
+    background-color: #8cc4bc;
+    opacity: 100%;
+}
+.btn-primary:active{
+    background-color: #8cc4bc !important;
+}
+
+.seperator {
+    width: 250px;
+    margin-right: auto;
+}
+
+.standardText {
+    font-size: 22px;
+}
+
+.textContainer {
+    font-family: 'Josefin Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.headerText {
+    flex-direction: column;
+    justify-content: center;
+    color: #212529 !important;
+}
+
+.carosel {
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+}
+
+.right {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right;
+}
+
+@media only screen and (max-width: 1200px) {
+    body {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .seperator {
+        width: 400px;
+        margin-left: auto;
+    }
+
+    .textContainer {
+        width: 80%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+        height: auto !important;
+    }
+
+    .carosel {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .right {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+}

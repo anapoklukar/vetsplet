@@ -1,0 +1,1865 @@
+<div *ngIf="spinner">
+    <app-spinner></app-spinner>
+</div>
+<div *ngIf="!spinner">
+<div class="stranka-container">
+    <div class="row g-5" style="height: 100%">
+        <div class="col-12 col-xl-4" style="flex-direction: column">
+            <div
+                class="card outercard left border-0"
+                style="
+                    background-color: #fffadc !important;
+                    border-radius: 2vw;
+                    overflow: hidden;
+                "
+                id="card1"
+            >
+                <div style="overflow-x: hidden; overflow-y: auto">
+                    <div class="card-body card-body-wrapper">
+                        <div class="profileLocation">
+                            <button
+                                type="button"
+                                class="btn btn-primary btn-lg profile"
+                                style="
+                                    overflow: hidden;
+                                    border-radius: 2vh;
+                                    height: 120px;
+                                    width: 120px;
+                                "
+                                (click)="stateChangLoginPopup()"
+                            >
+                                <span class="btn-text">VEČ INFO</span>
+                            </button>
+                            <div
+                                class="profileInformation"
+                                style="font-family: 'Josefin Sans', sans-serif"
+                            >
+                                <h3 style="line-height: 1">
+                                    {{ user.name }} {{ user.surname }}
+                                </h3>
+                                <p style="font-size: 25px; line-height: 0"></p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="card first"
+                            style="
+                                background-color: #fcfaf4 !important;
+                                display: flex;
+                                overflow: hidden;
+                            "
+                        >
+                            <div
+                                class="hiddenScrollbar"
+                                style="
+                                    overflow: scroll;
+                                    overflow-x: hidden;
+                                    height: 100%;
+                                "
+                            >
+                                <div
+                                    class="headline"
+                                    style="
+                                        display: flex;
+                                        font-family: 'Josefin Sans', sans-serif;
+                                    "
+                                >
+                                    <hr />
+                                    <span> PRIHAJAJOČI DOGODKI </span>
+                                    <hr />
+                                </div>
+                                <div class="table1" style="width: 100%">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Patient</th>
+                                                <th scope="col">Appointment</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Doctor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="previousAppointments">
+                                            @for (app of prevAppointments; let i
+                                            =$index; track i; ) {
+                                            <tr>
+                                                <td>
+                                                    {{
+                                                        getPatientFromId(
+                                                            app.patientId
+                                                        ).name
+                                                    }}
+                                                </td>
+                                                <td>
+                                                    {{
+                                                        getAppointmentType(
+                                                            prevAppointments[i]
+                                                                ?.vetAppId
+                                                        )
+                                                    }}
+                                                </td>
+                                                <td>
+                                                    {{app.date | iSOToReadable | customDate | time}}
+                                                </td>
+                                                <td>
+                                                    {{
+                                                        getEmployeeFromEmployeeID(
+                                                            app.employeeId
+                                                        ).name
+                                                    }}
+                                                    {{
+                                                        getEmployeeFromEmployeeID(
+                                                            app.employeeId
+                                                        ).surname
+                                                    }}
+                                                </td>
+                                            </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="card second"
+                            style="
+                                background-color: #fcfaf4 !important;
+                                display: flex;
+                                overflow: hidden;
+                            "
+                        >
+                            <div
+                                class="hiddenScrollbar"
+                                style="
+                                    overflow: scroll;
+                                    overflow-x: hidden;
+                                    height: 100%;
+                                "
+                            >
+                                <div
+                                    class="headline"
+                                    style="
+                                        display: flex;
+                                        font-family: 'Josefin Sans', sans-serif;
+                                    "
+                                >
+                                    <hr />
+                                    <span> PRETEKLI DOGODKI </span>
+                                    <hr />
+                                </div>
+                                <div
+                                    class="table1"
+                                    style="width: 100% !important"
+                                >
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Patient</th>
+                                                <th scope="col">Appointment</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Doctor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="futureAppointments">
+                                            @for (app of futureAppointments; let
+                                            i=$index; track i; ) {
+                                            <tr>
+                                                <td>
+                                                    {{
+                                                        getPatientFromId(
+                                                            app.patientId
+                                                        ).name
+                                                    }}
+                                                </td>
+                                                <td>
+                                                    {{
+                                                        getAppointmentType(
+                                                            futureAppointments[
+                                                                i
+                                                            ]?.vetAppId
+                                                        )
+                                                    }}
+                                                </td>
+                                                <td>
+                                                    {{app.date | iSOToReadable | customDate | time}}
+                                                </td>
+                                                <td>
+                                                    {{
+                                                        getEmployeeFromEmployeeID(
+                                                            app.employeeId
+                                                        ).name
+                                                    }}
+                                                    {{
+                                                        getEmployeeFromEmployeeID(
+                                                            app.employeeId
+                                                        ).surname
+                                                    }}
+                                                </td>
+                                            </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <div
+                                        class="noData"
+                                        style="
+                                            display: flex;
+                                            align-items: flex-end;
+                                            justify-content: center;
+                                            font-family: 'Josefin Sans',
+                                                sans-serif;
+                                        "
+                                    >
+                                        <span
+                                            >Prikaz informacij samo za zadnje
+                                            tri mesece!</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="card third"
+                            style="
+                                background-color: #fcfaf4 !important;
+                                overflow: hidden;
+                            "
+                        >
+                            <div
+                                class="headline"
+                                style="
+                                    display: flex;
+                                    font-family: 'Josefin Sans', sans-serif;
+                                "
+                            >
+                                <hr />
+                                <span> INFORMACIJE ZA KLIENTE </span>
+                                <hr />
+                            </div>
+                            <div class="all">
+                                <div
+                                    class="icons-vertical"
+                                    id="icons"
+                                    style="height: 80%; max-height: 300px"
+                                >
+                                    @for (p of user.patients; let i =$index;
+                                    track i; ) {
+                                        <div
+                                        class="circleIcon pointer"
+                                        [ngClass]="{'active': currentSelectedPatient?.name === p.name}"
+                                        [style.backgroundColor]="colors[i % colors.length]"
+                                        (click)="changeCurrentPatient(p.name)"
+                                      >
+                                        <img
+                                          [src]="'assets/images/icons/' + iconImages[i % colors.length]"
+                                          class="greenCat"
+                                        />
+                                        <span class="circleIconText">{{ p.name }}</span>
+                                      </div>
+                                      
+                                    }
+                                </div>
+                                <div class="content">
+                                    <div
+                                        class="information"
+                                        style="
+                                            font-family: 'Josefin Sans',
+                                                sans-serif;
+                                        "
+                                    >
+                                        <b>VRSTA:</b><br />
+                                        <b>SPOL:</b><br />
+                                        <b>STAROST:</b><br />
+                                        <b>PASMA:</b><br />
+                                        <b>ŠT. POTNI LIST:</b><br />
+                                        <b>ČIPIRAN:</b><br />
+                                    </div>
+                                    <div
+                                        class="d-flex"
+                                        style="
+                                            height: 75%;
+                                            color: #707070;
+                                            margin-top: auto;
+                                            margin-bottom: 3.8vh;
+                                            margin-left: 0.7vw;
+                                        "
+                                    >
+                                        <div class="vr"></div>
+                                    </div>
+                                    <div
+                                        class="information"
+                                        style="
+                                            font-family: 'Josefin Sans',
+                                                sans-serif;
+                                            text-align: left;
+                                            margin-left: 0.7vw;
+                                        "
+                                    >
+                                        <span id="species">{{
+                                            currentSelectedPatient?.species
+                                        }}</span
+                                        ><br />
+                                        <span id="gender">{{
+                                            currentSelectedPatient?.gender
+                                        }}</span
+                                        ><br />
+                                        <span id="age">{{
+                                            currentSelectedPatient?.age
+                                        }}</span
+                                        ><br />
+                                        <span id="breed">{{
+                                            currentSelectedPatient?.breed
+                                        }}</span
+                                        ><br />
+                                        <span id="passport">{{
+                                            currentSelectedPatient?.passportId
+                                        }}</span
+                                        ><br />
+                                        <span id="chipped">{{
+                                            currentSelectedPatient?.chip
+                                                ? "Da"
+                                                : "Ne"
+                                        }}</span
+                                        ><br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="informationIconButtons">
+                                <div
+                                    class="add"
+                                    (click)="stateChangeCreatePet()"
+                                >
+                                    <i
+                                        class="fa-solid fa-plus plus"
+                                        style="
+                                            color: #2c2c2c;
+                                            margin-left: 0.6em;
+                                        "
+                                    ></i>
+                                </div>
+                                <div
+                                    class="popup popup-confirm {{
+                                        showDeleteBool ? 'show' : ''
+                                    }}"
+                                    id="popupConfirmation"
+                                >
+                                    <div
+                                        style="
+                                            display: flex;
+                                            flex-direction: column;
+                                            width: 50%;
+                                            margin-left: auto;
+                                            margin-right: auto;
+                                        "
+                                    >
+                                        <span
+                                            >Ste prepričani, da želite izbrisati
+                                            tega pacienta?
+                                        </span>
+                                    </div>
+                                    <div
+                                        style="
+                                            display: flex;
+                                            flex-direction: row;
+                                        "
+                                    >
+                                        <button
+                                            class="btn btn-primary"
+                                            style="
+                                                margin-right: auto;
+                                                margin-left: auto;
+                                                background-color: #f3e38b;
+                                                border-color: #f3e38b;
+                                            "
+                                            (click)="removePatient()"
+                                        >
+                                            Potrditev
+                                        </button>
+                                        <button
+                                            class="btn btn-primary"
+                                            style="
+                                                margin-right: auto;
+                                                margin-left: auto;
+                                                background-color: #f3e38b;
+                                                border-color: #f3e38b;
+                                            "
+                                            (click)="stateChangeDeletePopup()"
+                                        >
+                                            Prekliči
+                                        </button>
+                                    </div>
+                                </div>
+                                <div
+                                    class="delete"
+                                    (click)="stateChangeDeletePopup()"
+                                >
+                                    <i
+                                        class="fa-solid fa-eraser edit"
+                                        style="
+                                            color: #2c2c2c;
+                                            margin-left: 0.5em;
+                                        "
+                                    ></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-xl-4">
+            <div
+                class="card outercard center border-0"
+                style="
+                    background-color: #effcfb !important;
+                    border-radius: 2vw;
+                    overflow: hidden;
+                "
+                id="card2"
+            >
+                <div style="overflow-x: hidden; overflow-y: auto">
+                    <div
+                        class="title"
+                        style="
+                            display: flex;
+                            font-family: 'Josefin Sans', sans-serif;
+                            font-size: 22px;
+                            color: #3ebdae;
+                            margin-top: 2vh;
+                            justify-content: center;
+                        "
+                    >
+                        <span style="flex-direction: row"
+                            ><strong>TERMIN ZA: </strong></span
+                        >
+
+                        <div
+                            class="dropdown mt-3"
+                            style="
+                                flex-direction: row;
+                                margin-top: -5px !important;
+                                margin-left: 0.5vw;
+                            "
+                        >
+                            <select
+                                class="btn btn-secondary"
+                                type="button"
+                                id="animalSelect"
+                                (change)="changePetSelect($event.target)"
+                            >
+                                @for (p of user.patients; let i =$index; track
+                                i; ) {
+                                <option
+                                    value="{{ p.name }}
+                                "
+                                    [attr.selected]="
+                                        currentSelectedPatient?.name === p.name
+                                            ? true
+                                            : null
+                                    "
+                                >
+                                    {{ p.name }}
+                                </option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="twoButtons">
+                            <button
+                                class="btn checkUp btn-primary btn-lg {{
+                                    meetingTypeText == 'checkup' ? 'active' : ''
+                                }}"
+                                (click)="setMeetingType('checkup')"
+                            >
+                                <img
+                                    class="icon1"
+                                    src="/assets/images/icons/checkup.png"
+                                    alt="Your Image Description"
+                                />
+                                <span class="short-text">Pregled</span>
+                                <span class="full-text"
+                                    >Zdravstveni pregledi in posvetovanja</span
+                                >
+                            </button>
+
+                            <button
+                                class="btn checkUp btn-primary btn-lg {{
+                                    meetingTypeText == 'washing' ? 'active' : ''
+                                }}"
+                                (click)="setMeetingType('washing')"
+                            >
+                                <img
+                                    class="icon1"
+                                    src="/assets/images/icons/washing.png"
+                                    alt="Your Image Description"
+                                />
+                                <span class="short-text">Pranje</span>
+                                <span class="full-text"
+                                    >Pranje, sušenje in krtačenje</span
+                                >
+                            </button>
+
+                            <button
+                                class="btn checkUp btn-primary btn-lg {{
+                                    meetingTypeText == 'hygine' ? 'active' : ''
+                                }}"
+                                (click)="setMeetingType('hygine')"
+                            >
+                                <img
+                                    class="icon1"
+                                    src="/assets/images/icons/hygine.png"
+                                    alt="Your Image Description"
+                                />
+                                <span class="short-text">Higiena</span>
+                                <span class="full-text"
+                                    >Striženje nohtov, čiščenje ušes, bolhe
+                                    itd.</span
+                                >
+                            </button>
+                        </div>
+                        <div class="twoButtons">
+                            <button
+                                class="btn checkUp btn-primary btn-lg {{
+                                    meetingTypeText == 'styling' ? 'active' : ''
+                                }}"
+                                (click)="setMeetingType('styling')"
+                            >
+                                <img
+                                    class="icon1"
+                                    src="/assets/images/icons/styling.png"
+                                    alt="Your Image Description"
+                                />
+                                <span class="short-text">Striženje</span>
+                                <span class="full-text"
+                                    >Pranje, sušenje, krtačenje in
+                                    striženje</span
+                                >
+                            </button>
+
+                            <button
+                                class="btn checkUp btn-primary btn-lg {{
+                                    meetingTypeText == 'kastracija'
+                                        ? 'active'
+                                        : ''
+                                }}"
+                                (click)="setMeetingType('kastracija')"
+                            >
+                                <img
+                                    class="icon1"
+                                    src="/assets/images/icons/kastracija.png"
+                                    alt="Your Image Description"
+                                />
+                                <span class="short-text">Kastracija</span>
+                                <span class="full-text"
+                                    >Kirurški poseg odstranitev moda</span
+                                >
+                            </button>
+
+                            <button
+                                class="btn checkUp btn-primary btn-lg {{
+                                    meetingTypeText == 'sterelizacija'
+                                        ? 'active'
+                                        : ''
+                                }}"
+                                (click)="setMeetingType('sterelizacija')"
+                            >
+                                <img
+                                    class="icon1"
+                                    src="/assets/images/icons/sterelizacija.png"
+                                    alt="Your Image Description"
+                                />
+                                <span class="short-text">Sterilizacija</span>
+                                <span class="full-text"
+                                    >Kirurški poseg odstranitev jajčnike</span
+                                >
+                            </button>
+                        </div>
+                        <div class="twoButtons">
+                            <button
+                                class="btn checkUp left btn-primary btn-lg {{
+                                    meetingTypeText == 'bloodtest'
+                                        ? 'active'
+                                        : ''
+                                }}"
+                                (click)="setMeetingType('bloodtest')"
+                            >
+                                <img
+                                    class="icon1"
+                                    src="/assets/images/icons/bloodtest.png"
+                                    alt="Your Image Description"
+                                />
+                                <span class="short-text">Krvne preiskave</span>
+                                <span class="full-text"
+                                    >Pogovor z veterinarjem</span
+                                >
+                            </button>
+
+                            <button
+                                class="btn checkUp right btn-primary btn-lg {{
+                                    meetingTypeText == 'vakcinacija'
+                                        ? 'active'
+                                        : ''
+                                }}"
+                                (click)="setMeetingType('vakcinacija')"
+                            >
+                                <img
+                                    class="icon1"
+                                    src="/assets/images/icons/vakcinacija.png"
+                                    alt="Your Image Description"
+                                />
+                                <span class="short-text">Vakcinacija</span>
+                                <span class="full-text"
+                                    >Pogovor z veterinarjem</span
+                                >
+                            </button>
+                        </div>
+
+                        <app-koledar
+                            (onClickDateEvent)="calendarOnClickEvent($event)"
+                        ></app-koledar>
+
+                        <div class="twoButtons">
+                            <button
+                                class="btn checkUp left btn-primary btn-lg"
+                                (click)="stateChangeRequestPopup()"
+                            >
+                                <img
+                                    class="icon1"
+                                    src="/assets/images/icons/consultations.png"
+                                    alt="Your Image Description"
+                                />
+                                <span class="short-text"
+                                    >Posvetovanje in zdravstveno tveganje</span
+                                >
+                                <span class="full-text"
+                                    >Pregled v nujnih primerih</span
+                                >
+                            </button>
+
+                            <button
+                                class="btn checkUp right btn-primary btn-lg"
+                                (click)="stateChangeRequestPopup()"
+                            >
+                                <img
+                                    class="icon1"
+                                    src="/assets/images/icons/operacije.png"
+                                    alt="Your Image Description"
+                                />
+                                <span class="short-text"
+                                    >Operacije in nujno</span
+                                >
+                                <span class="full-text"
+                                    >Po posvetu z veterinarjem</span
+                                >
+                            </button>
+                        </div>
+
+                        <div class="twoButtons">
+                            <button
+                                class="btn checkUp left btn-primary btn-lg"
+                                (click)="stateChangeRequestPopup()"
+                            >
+                                <img
+                                    class="icon1"
+                                    src="/assets/images/icons/bandages.png"
+                                    alt="Your Image Description"
+                                />
+                                <span class="short-text">Zunajne poškodbe</span>
+                                <span class="full-text">Telesne poškodbe</span>
+                            </button>
+
+                            <button
+                                class="btn checkUp right btn-primary btn-lg"
+                                (click)="stateChangeRequestPopup()"
+                            >
+                                <img
+                                    class="icon1"
+                                    src="/assets/images/icons/internal.png"
+                                    alt="Your Image Description"
+                                />
+                                <span class="short-text"
+                                    >Notrajne poškodbe</span
+                                >
+                                <span class="full-text"
+                                    >Težave s prebavili, tumorji itd.</span
+                                >
+                            </button>
+                        </div>
+
+                        <div class="twoButtons">
+                            <button
+                                class="btn checkUp left btn-primary btn-lg"
+                                (click)="setMeetingType('other')"
+                                style="margin-left: auto; margin-right: auto"
+                            >
+                                <img
+                                    class="icon1"
+                                    src="/assets/images/icons/other.png"
+                                    alt="Your Image Description"
+                                />
+                                <span class="short-text">Ostalo</span>
+                                <a
+                                    class="full-text"
+                                    style="color: #454545"
+                                    href="mailto:velichkovska.matea15@gmail.com"
+                                    >Napišite osebno prošnjo, če je sprejeta in
+                                    ustrezna</a
+                                >
+                            </button>
+                        </div>
+
+                        <div
+                            class="popup {{ showRequestBool ? 'show' : '' }}"
+                            id="createAppointment"
+                        >
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1"
+                                    >Napišite kratek opis za veterinarja:
+                                </label>
+                                <textarea
+                                    class="form-control"
+                                    id="exampleFormControlTextarea1"
+                                    rows="3"
+                                    maxlength="125"
+                                ></textarea>
+                            </div>
+                            <button
+                                class="btn btn-primary"
+                                style="
+                                    margin-right: auto;
+                                    margin-left: auto;
+                                    margin-top: 8px;
+                                    background-color: #3cb6a7;
+                                    border-color: #3cb6a7;
+                                "
+                                (click)="sendAppointmentRequest()"
+                            >
+                                Potrditev
+                            </button>
+                            <button
+                                class="btn btn-primary"
+                                style="
+                                    margin-right: auto;
+                                    margin-left: auto;
+                                    margin-top: 8px;
+                                    background-color: #3cb6a7;
+                                    border-color: #3cb6a7;
+                                "
+                                (click)="stateChangeRequestPopup()"
+                            >
+                                Prekliči
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-xl-4">
+            <div
+                class="card outercard right border-0"
+                style="
+                    background-color: #fefff9 !important;
+                    border-radius: 2vw;
+                    display: flex;
+                    overflow: hidden;
+                "
+                id="card3"
+            >
+                <div style="overflow-x: hidden; overflow-y: auto">
+                    <div
+                        class="descClinic"
+                        style="
+                            display: flex;
+                            flex-direction: column;
+                            font-family: 'Josefin Sans', sans-serif;
+                            align-items: center;
+                            justify-content: center;
+                            margin-top: 5vh;
+                        "
+                    >
+                        <h3 style="color: #3cb6a7 !important">
+                            <strong id="clinicTitle">{{
+                                currentClinic?.name
+                            }}</strong>
+                        </h3>
+                        <div
+                            class="singleLine"
+                            style="display: flex; flex-direction: row"
+                        >
+                            <div class="oneLine">
+                                <i class="fa-solid fa-map-location-dot">
+                                    <span
+                                        style="
+                                            font-size: 1.2em;
+                                            font-family: 'Josefin Sans',
+                                                sans-serif;
+                                            font-weight: normal;
+                                        "
+                                        ><strong><u>Address: </u></strong
+                                        ><span id="clinicAddress">{{
+                                            currentClinic?.address
+                                        }}</span></span
+                                    >
+                                </i>
+                            </div>
+                        </div>
+                        <div
+                            class="singleLine"
+                            style="display: flex; flex-direction: row"
+                        >
+                            <div class="oneLine">
+                                <i class="fa-solid phone fa-phone">
+                                    <span
+                                        style="
+                                            font-size: 1.2em;
+                                            font-family: 'Josefin Sans',
+                                                sans-serif;
+                                            font-weight: normal;
+                                        "
+                                        ><strong><u>Phone: </u></strong
+                                        ><span id="clinicPhone">{{
+                                            currentClinic?.telNumber
+                                        }}</span></span
+                                    >
+                                </i>
+                            </div>
+                        </div>
+                        <div
+                            class="singleLine"
+                            style="display: flex; flex-direction: row"
+                        >
+                            <div class="oneLine">
+                                <i class="fa-solid fa-envelope">
+                                    <span
+                                        style="
+                                            font-size: 1.2em;
+                                            font-family: 'Josefin Sans',
+                                                sans-serif;
+                                            font-weight: normal;
+                                        "
+                                        ><strong><u>Email: </u></strong
+                                        ><span id="clinicEmail">{{
+                                            currentClinic?.email
+                                        }}</span></span
+                                    >
+                                </i>
+                            </div>
+                        </div>
+
+                        <div class="container" style="width: 100%">
+                            <div
+                                class="row"
+                                style="
+                                    padding-top: 10px;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    margin-top: 2.5vh;
+                                "
+                            >
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4">
+                                    <div
+                                        class="list-group"
+                                        id="drList"
+                                        style="
+                                            max-height: 168px;
+                                            overflow: scroll;
+                                        "
+                                    >
+                                        @for(e of currentClinic?.employees; let
+                                        i =$index; track i; ) {
+                                        <a
+                                            class="pointer list-group-item list-group-item-action {{
+                                                i == selectedDoctor
+                                                    ? 'drListActive'
+                                                    : ''
+                                            }}"
+                                            (click)="changeSelectedDoctor(i)"
+                                        >
+                                            {{ e.name }}</a
+                                        >
+                                        }
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-md-6"
+                                    id="drInfo"
+                                    style="
+                                        margin-top: auto;
+                                        margin-bottom: auto;
+                                    "
+                                >
+                                    <div
+                                        class="tab-pane"
+                                        role="tabpanel"
+                                        aria-labelledby="v-pills-profile-tab"
+                                    >
+                                        <div
+                                            class="card doctors border-info mb-3"
+                                            style="height: 100%"
+                                        >
+                                            <div
+                                                class="card-body vet text-info"
+                                                style="
+                                                    color: #3cb6a7 !important;
+                                                "
+                                            >
+                                                <h5 class="card-title">
+                                                    {{
+                                                        getSelectedDoctorName()
+                                                    }}
+                                                </h5>
+                                                <hr
+                                                    style="
+                                                        margin-top: -1vh;
+                                                        margin-bottom: 0vh;
+                                                    "
+                                                />
+                                                <h6 class="profession">
+                                                    {{
+                                                        getSelectedDoctorType()
+                                                    }}
+                                                </h6>
+                                                <div
+                                                    class="singleLine"
+                                                    style="
+                                                        display: flex;
+                                                        flex-direction: row;
+                                                    "
+                                                >
+                                                    <div class="oneLine">
+                                                        <i
+                                                            class="fa-solid phone fa-phone"
+                                                            style="
+                                                                color: #3cb6a7 !important;
+                                                            "
+                                                        ></i>
+                                                        <span
+                                                            style="
+                                                                font-size: 0.9em;
+                                                            "
+                                                            ><strong
+                                                                >Phone: </strong
+                                                            >{{
+                                                                getSelectedDoctorPhone()
+                                                            }}</span
+                                                        >
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="singleLine"
+                                                    style="
+                                                        display: flex;
+                                                        flex-direction: row;
+                                                    "
+                                                >
+                                                    <div class="oneLine">
+                                                        <i
+                                                            class="fa-solid fa-envelope"
+                                                            style="
+                                                                color: #3cb6a7 !important;
+                                                            "
+                                                        ></i>
+                                                        <span
+                                                            style="
+                                                                font-size: 0.9em;
+                                                            "
+                                                        >
+                                                            <strong
+                                                                >Email: </strong
+                                                            >{{
+                                                                getSelectedDoctorEmail()
+                                                            }}</span
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="container text-center my-3"
+                        style="display: flex; height: 256px"
+                    >
+                        <div class="row mx-auto my-auto justify-content-center">
+                            <div
+                                id="recipeCarousel"
+                                class="carousel slide"
+                                data-bs-ride="carousel"
+                            >
+                                <div
+                                    class="carousel-inner"
+                                    role="listbox"
+                                    id="carouselItems"
+                                >
+
+
+
+
+                                    <div class="carousel-item active">
+                                        <div class="col-md-6">
+                                            <div class="card">
+                                                <div class="card-img">
+                                                    <div class="card-body">
+                                                        <div
+                                                            class="card text-white bg-info mb-3"
+                                                            style="
+                                                                border-radius: 2.5vh;
+                                                                background-color: #e8f2f0 !important;
+                                                                border: none;
+                                                                overflow: hidden;
+                                                            "
+                                                        >
+                                                            <div
+                                                                class="card-header"
+                                                                style="
+                                                                    background-size: cover;
+                                                                    color: #454545;
+                                                                    font-family: 'Josefin Sans',
+                                                                        sans-serif;
+                                                                    text-align: center;
+                                                                "
+                                                            >
+                                                                <strong
+                                                                >{{randomClinic[0].name}}</strong
+                                                                >
+                                                            </div>
+                                                            <div
+                                                                class="card-body"
+                                                            >
+                                                                <div
+                                                                    class="oneLine"
+                                                                    style="
+                                                                        display: flex;
+                                                                        justify-content: center;
+                                                                    "
+                                                                >
+                                                                    <i
+                                                                        class="fa-solid fa-map-location-dot"
+                                                                        style="
+                                                                            padding-right: 0.5vw;
+                                                                            color: #454545 !important;
+                                                                        "
+                                                                        aria-hidden="true"
+                                                                    ></i>
+                                                                    <h4
+                                                                        class="card-title"
+                                                                        style="
+                                                                            flex-direction: row;
+                                                                            color: #454545;
+                                                                            text-align: center;
+                                                                            font-size: 15px;
+                                                                            font-family: 'Josefin Sans',
+                                                                                sans-serif;
+                                                                        "
+                                                                    >
+                                                                        Address:
+                                                                        <small
+                                                                        >{{randomClinic[0].address}}</small
+                                                                        >
+                                                                    </h4>
+                                                                </div>
+                                                                <div
+                                                                    class="oneLine"
+                                                                    style="
+                                                                        display: flex;
+                                                                        justify-content: center;
+                                                                    "
+                                                                >
+                                                                    <i
+                                                                        class="fa-solid fa-phone"
+                                                                        style="
+                                                                            padding-right: 0.5vw;
+                                                                            color: #454545 !important;
+                                                                        "
+                                                                        aria-hidden="true"
+                                                                    ></i>
+                                                                    <h5
+                                                                        class="card-title"
+                                                                        style="
+                                                                            flex-direction: row;
+                                                                            color: #454545;
+                                                                            text-align: center;
+                                                                            font-size: 15px;
+                                                                            font-family: 'Josefin Sans',
+                                                                                sans-serif;
+                                                                        "
+                                                                    >
+                                                                        Contact:
+                                                                        <small>{{randomClinic[0].telNumber}}</small>
+                                                                    </h5>
+                                                                </div>
+                                                                <div
+                                                                    class="oneLine"
+                                                                    style="
+                                                                        display: flex;
+                                                                        justify-content: center;
+                                                                    "
+                                                                >
+                                                                    <i
+                                                                        class="fa-solid fa-envelope"
+                                                                        style="
+                                                                            padding-right: 0.5vw;
+                                                                            color: #454545 !important;
+                                                                        "
+                                                                        aria-hidden="true"
+                                                                    ></i>
+                                                                    <h5
+                                                                        class="card-title"
+                                                                        style="
+                                                                            flex-direction: row;
+                                                                            color: #454545;
+                                                                            text-align: center;
+                                                                            font-size: 15px;
+                                                                            font-family: 'Josefin Sans',
+                                                                                sans-serif;
+                                                                        "
+                                                                    >
+                                                                        Email:
+                                                                        <small>{{randomClinic[0].email}}</small
+                                                                        >
+                                                                    </h5>
+                                                                </div>
+                                                                <p
+                                                                    class="card-text"
+                                                                    style="
+                                                                        color: #454545;
+                                                                        text-align: justify;
+                                                                        font-family: 'Josefin Sans',
+                                                                            sans-serif;
+                                                                    "
+                                                                >{{randomClinic[0].description}}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card">
+                                                <div class="card-img">
+                                                    <div class="card-body">
+                                                        <div
+                                                            class="card text-white bg-info mb-3"
+                                                            style="
+                                                                border-radius: 2.5vh;
+                                                                background-color: #e8e9f9 !important;
+                                                                border: none;
+                                                                overflow: hidden;
+                                                            "
+                                                        >
+                                                            <div
+                                                                class="card-header"
+                                                                style="
+                                                                    background-size: cover;
+                                                                    color: #454545;
+                                                                    font-family: 'Josefin Sans',
+                                                                        sans-serif;
+                                                                    text-align: center;
+                                                                "
+                                                            >
+                                                                <strong
+                                                                >{{randomClinic[1].name}}</strong
+                                                                >
+                                                            </div>
+                                                            <div
+                                                                class="card-body"
+                                                            >
+                                                                <div
+                                                                    class="oneLine"
+                                                                    style="
+                                                                        display: flex;
+                                                                        justify-content: center;
+                                                                    "
+                                                                >
+                                                                    <i
+                                                                        class="fa-solid fa-map-location-dot"
+                                                                        style="
+                                                                            padding-right: 0.5vw;
+                                                                            color: #454545 !important;
+                                                                        "
+                                                                        aria-hidden="true"
+                                                                    ></i>
+                                                                    <h4
+                                                                        class="card-title"
+                                                                        style="
+                                                                            flex-direction: row;
+                                                                            color: #454545;
+                                                                            text-align: center;
+                                                                            font-size: 15px;
+                                                                            font-family: 'Josefin Sans',
+                                                                                sans-serif;
+                                                                        "
+                                                                    >
+                                                                        Address:
+                                                                        <small
+                                                                        >{{randomClinic[1].address}}</small
+                                                                        >
+                                                                    </h4>
+                                                                </div>
+                                                                <div
+                                                                    class="oneLine"
+                                                                    style="
+                                                                        display: flex;
+                                                                        justify-content: center;
+                                                                    "
+                                                                >
+                                                                    <i
+                                                                        class="fa-solid fa-phone"
+                                                                        style="
+                                                                            padding-right: 0.5vw;
+                                                                            color: #454545 !important;
+                                                                        "
+                                                                        aria-hidden="true"
+                                                                    ></i>
+                                                                    <h5
+                                                                        class="card-title"
+                                                                        style="
+                                                                            flex-direction: row;
+                                                                            color: #454545;
+                                                                            text-align: center;
+                                                                            font-size: 15px;
+                                                                            font-family: 'Josefin Sans',
+                                                                                sans-serif;
+                                                                        "
+                                                                    >
+                                                                        Contact:
+                                                                        <small
+                                                                        >{{randomClinic[1].telNumber}}</small
+                                                                        >
+                                                                    </h5>
+                                                                </div>
+                                                                <div
+                                                                    class="oneLine"
+                                                                    style="
+                                                                        display: flex;
+                                                                        justify-content: center;
+                                                                    "
+                                                                >
+                                                                    <i
+                                                                        class="fa-solid fa-envelope"
+                                                                        style="
+                                                                            padding-right: 0.5vw;
+                                                                            color: #454545 !important;
+                                                                        "
+                                                                        aria-hidden="true"
+                                                                    ></i>
+                                                                    <h5
+                                                                        class="card-title"
+                                                                        style="
+                                                                            flex-direction: row;
+                                                                            color: #454545;
+                                                                            text-align: center;
+                                                                            font-size: 15px;
+                                                                            font-family: 'Josefin Sans',
+                                                                                sans-serif;
+                                                                        "
+                                                                    >
+                                                                        Email:
+                                                                        <small
+                                                                        >{{randomClinic[1].email}}</small>
+                                                                    </h5>
+                                                                </div>
+                                                                <p
+                                                                    class="card-text"
+                                                                    style="
+                                                                        color: #454545;
+                                                                        text-align: justify;
+                                                                        font-family: 'Josefin Sans',
+                                                                            sans-serif;
+                                                                    "
+                                                                >{{randomClinic[1].description}}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <div class="col-md-6">
+                                            <div class="card">
+                                                <div class="card-img">
+                                                    <div class="card-body">
+                                                        <div class="card text-white bg-info mb-3"
+                                                             style="border-radius: 2.5vh; background-color: #e8f2f0 !important; border: none; overflow: hidden;">
+                                                            <div class="card-header"
+                                                                 style="background-size: cover; color: #454545; font-family: 'Josefin Sans', sans-serif; text-align: center;">
+                                                                <strong>{{randomClinic[2].name}}</strong></div>
+                                                            <div class="card-body">
+                                                                <div class="oneLine" style="display: flex; justify-content: center;">
+                                                                    <i class="fa-solid fa-map-location-dot"
+                                                                       style="padding-right: 0.5vw; color: #454545 !important;" aria-hidden="true"></i>
+                                                                    <h4 class="card-title"
+                                                                        style="flex-direction: row; color: #454545; text-align: center; font-size: 15px; font-family: 'Josefin Sans', sans-serif;">
+                                                                        Address: <small>{{randomClinic[2].address}}</small></h4>
+                                                                </div>
+                                                                <div class="oneLine" style="display: flex; justify-content: center;">
+                                                                    <i class="fa-solid fa-phone" style="padding-right: 0.5vw; color: #454545 !important;"
+                                                                       aria-hidden="true"></i>
+                                                                    <h5 class="card-title"
+                                                                        style="flex-direction: row; color: #454545; text-align: center; font-size: 15px; font-family: 'Josefin Sans', sans-serif;">
+                                                                        Contact: <small>{{randomClinic[2].telNumber}}</small></h5>
+                                                                </div>
+                                                                <div class="oneLine" style="display: flex; justify-content: center;">
+                                                                    <i class="fa-solid fa-envelope" style="padding-right: 0.5vw; color: #454545 !important;"
+                                                                       aria-hidden="true"></i>
+                                                                    <h5 class="card-title"
+                                                                        style="flex-direction: row; color: #454545; text-align: center; font-size: 15px; font-family: 'Josefin Sans', sans-serif;">
+                                                                        Email: <small>{{randomClinic[2].email}}</small></h5>
+                                                                </div>
+                                                                <p class="card-text"
+                                                                   style="color: #454545; text-align: justify; font-family: 'Josefin Sans', sans-serif;">
+                                                                    {{randomClinic[2].description}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card">
+                                                <div class="card-img">
+                                                    <div class="card-body">
+                                                        <div class="card text-white bg-info mb-3"
+                                                             style="border-radius: 2.5vh; background-color: #E8E9F9 !important; border: none; overflow: hidden;">
+                                                            <div class="card-header"
+                                                                 style="background-size: cover; color: #454545; font-family: 'Josefin Sans', sans-serif; text-align: center;">
+                                                                <strong>{{randomClinic[3].name}}</strong></div>
+                                                            <div class="card-body">
+                                                                <div class="oneLine" style="display: flex; justify-content: center;">
+                                                                    <i class="fa-solid fa-map-location-dot"
+                                                                       style="padding-right: 0.5vw; color: #454545 !important;" aria-hidden="true"></i>
+                                                                    <h4 class="card-title"
+                                                                        style="flex-direction: row; color: #454545; text-align: center; font-size: 15px; font-family: 'Josefin Sans', sans-serif;">
+                                                                        Address: <small>{{randomClinic[3].address}}</small></h4>
+                                                                </div>
+                                                                <div class="oneLine" style="display: flex; justify-content: center;">
+                                                                    <i class="fa-solid fa-phone" style="padding-right: 0.5vw; color: #454545 !important;"
+                                                                       aria-hidden="true"></i>
+                                                                    <h5 class="card-title"
+                                                                        style="flex-direction: row; color: #454545; text-align: center; font-size: 15px; font-family: 'Josefin Sans', sans-serif;">
+                                                                        Contact: <small>{{randomClinic[3].telNumber}}</small></h5>
+                                                                </div>
+                                                                <div class="oneLine" style="display: flex; justify-content: center;">
+                                                                    <i class="fa-solid fa-envelope" style="padding-right: 0.5vw; color: #454545 !important;"
+                                                                       aria-hidden="true"></i>
+                                                                    <h5 class="card-title"
+                                                                        style="flex-direction: row; color: #454545; text-align: center; font-size: 15px; font-family: 'Josefin Sans', sans-serif;">
+                                                                        Email: <small>{{randomClinic[3].email}}</small></h5>
+                                                                </div>
+                                                                <p class="card-text"
+                                                                   style="color: #454545; text-align: justify; font-family: 'Josefin Sans', sans-serif;">
+                                                                    {{randomClinic[3].description}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </div>
+                                <a
+                                    class="carousel-control-prev bg-transparent w-aut"
+                                    href="#recipeCarousel"
+                                    role="button"
+                                    data-bs-slide="prev"
+                                >
+                                    <span
+                                        class="carousel-control-prev-icon"
+                                        aria-hidden="true"
+                                    ></span>
+                                </a>
+                                <a
+                                    class="carousel-control-next bg-transparent w-aut"
+                                    href="#recipeCarousel"
+                                    role="button"
+                                    data-bs-slide="next"
+                                >
+                                    <span
+                                        class="carousel-control-next-icon"
+                                        aria-hidden="true"
+                                    ></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="card second"
+                        style="
+                            background-color: #fcfaf4 !important;
+                            display: flex;
+                            overflow: hidden;
+                            height: 200px;
+                        "
+                    >
+                        <div
+                            class="hiddenScrollbar"
+                            style="
+                                overflow: scroll;
+                                overflow-x: hidden;
+                                height: 100%;
+                            "
+                        >
+                            <div
+                                class="headline"
+                                style="
+                                    display: flex;
+                                    font-family: 'Josefin Sans', sans-serif;
+                                "
+                            >
+                                <hr />
+                                <span> PODATKI O PACIENTU </span>
+                                <hr />
+                            </div>
+                            <div class="table1" style="width: 100% !important">
+                                <table class="table patient table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Pacient</th>
+                                            <th scope="col">Klinika</th>
+                                            <th scope="col">
+                                                Glavni veterinar pacienta
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="patientInfos">
+                                        @for (p of user.patients; let i =$index;
+                                        track i; ) {
+                                        <tr>
+                                            <td>
+                                                {{ p.name }}
+                                            </td>
+                                            <td style="padding: 4px">
+                                                <div
+                                                    class="changeClinic"
+                                                    style="
+                                                        font-family: 'Josefin Sans',
+                                                            sans-serif;
+                                                        text-align: center;
+                                                    "
+                                                >
+                                                    <div
+                                                        class="dropdown clinics mt-3"
+                                                    >
+                                                        <div
+                                                            class="dropdown mt-3"
+                                                        >
+                                                            <select
+                                                                class="btn btn-secondary dropdown-toggle updateClinicPatient"
+                                                                style="
+                                                                    justify-content: center;
+                                                                    margin-top: -2vh;
+                                                                    background-color: #fcfaf4 !important;
+                                                                    color: #454545 !important;
+                                                                "
+                                                            >
+                                                                @for(c of
+                                                                clinics; let i
+                                                                =$index; track
+                                                                i; ) {
+                                                                <option
+                                                                    [attr.data-patient-name]="
+                                                                        p.name
+                                                                    "
+                                                                    value="{{
+                                                                        c.name
+                                                                    }}"
+                                                                    [attr.selected]="
+                                                                        c.name ==
+                                                                        p.clinic
+                                                                            ? true
+                                                                            : null
+                                                                    "
+                                                                    [attr.disabled]="
+                                                                        c.name ==
+                                                                        p.clinic
+                                                                            ? true
+                                                                            : null
+                                                                    "
+                                                                >
+                                                                    {{ c.name }}
+                                                                </option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {{ p.assignedEmployee }}
+                                            </td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <div
+                                    class="noData"
+                                    style="
+                                        display: flex;
+                                        align-items: flex-end;
+                                        justify-content: center;
+                                        font-family: 'Josefin Sans', sans-serif;
+                                    "
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row">
+                        <button
+                            class="btn btn-primary"
+                            style="
+                                margin-top: 1vh;
+                                margin-right: auto;
+                                margin-left: auto;
+                                background-color: #fcfaf4;
+                                border-color: #d7d7d7;
+                                color: #6c6c6c;
+                            "
+                            (click)="updateClinics()"
+                        >
+                            Potrditev
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fact">
+            <p id="fact">{{ fact }}</p>
+        </div>
+
+        <div
+            class="popup {{ showAppointmentBool == true ? 'show' : '' }}"
+            id="popup"
+        >
+            <div style="margin-right: auto; margin-left: auto">
+                <span id="popupDateText">{{
+                    selectedDate["date"] +
+                        "." +
+                        selectedDate["month"] +
+                        "." +
+                        selectedDate["year"]
+                }}</span>
+            </div>
+            <div
+                style="
+                    display: flex;
+                    flex-direction: column;
+                    width: 50%;
+                    margin-left: auto;
+                    margin-right: auto;
+                "
+            >
+                <select id="timeSelect">
+                    @for (t of getAvailableTimes(); let i =$index; track i; ) {
+                        <option value="{{ t }}">{{ t }}</option>
+                    }
+                </select>
+                <span style="width: 200px">Izberite termin za:</span>
+                <span id="meetingType" style="font-family: 'Josefin Sans SemiBold'">{{ meetingTypeText }}</span>
+                <hr>
+                <span style="width: 200px">Imate {{ userTokens }} točk.</span>
+                <span style="width: 200px;">Koliko jih želite uporabiti?</span>
+                <input type="number" id="numberInput" name="tokensToUse" min="0" style="width: 80px; margin-left: auto; margin-right: auto" [(ngModel)]="tokensToUse" />
+            </div>
+            <div style="display: flex; flex-direction: row">
+                <button
+                    class="btn btn-primary"
+                    style="
+                        margin-right: auto;
+                        margin-left: auto;
+                        background-color: #3cb6a7;
+                        border-color: #3cb6a7;
+                    "
+                    (click)="addAppointment()"
+                >
+                    Potrditev
+                </button>
+                <button
+                    class="btn btn-primary"
+                    style="
+                        margin-right: auto;
+                        margin-left: auto;
+                        background-color: #3cb6a7;
+                        border-color: #3cb6a7;
+                    "
+                    (click)="stateChangeAppointmentPopup()"
+                >
+                    Prekliči
+                </button>
+            </div>
+        </div>
+
+        <div
+            class="popup popup-create-pet {{ showCreatePetBool ? 'show' : '' }}"
+            id="popupCreatePet"
+        >
+            <div class="container" style="padding: 30px">
+                <div class="pointer" (click)="stateChangeCreatePet()">
+                    <i
+                        class="fa-solid fa-x"
+                        style="position: absolute; top: 10px; right: 10px"
+                    ></i>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <label style="width: 100%">Name</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Name"
+                                id="name"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label style="width: 100%">VRSTA</label>
+                            <select class="form-control" id="vrsta">
+                                <option selected value="cat">Cat</option>
+                                <option value="dog">Dog</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="width: 100%">SPOL</label>
+                            <select class="form-control" id="spol">
+                                <option selected value="male">male</option>
+                                <option value="female">female</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Date of birth</label>
+                            <input
+                                type="date"
+                                class="form-control"
+                                placeholder="STAROST"
+                                id="starost"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label>PASMA</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="PASMA"
+                                id="pasma"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label>ŠT. POTNI LIST</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="ŠT. POTNI LIST"
+                                id="potni"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label>ČIPIRAN</label>
+                            <select class="form-control" id="cipiran">
+                                <option selected value="true">Da</option>
+                                <option value="false">Ne</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="width: 100%">Clinic</label>
+                            <select class="form-control" id="clinic">
+                                @for (c of clinics; let i =$index; track i; ) {
+                                    <option value="{{ c.name }}">
+                                        {{ c.name }}
+                                    </option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 30px">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-1">
+                        <button
+                            class="btn btn-primary"
+                            (click)="onSubmitCreatePet()"
+                            style="
+                                background-color: #f3e38b;
+                                border-color: #707070;
+                            "
+                        >
+                            Potrditev
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="popuplogin" class="popuplogin {{ showLoginBool ? 'show' : '' }}">
+            <div style="margin-right: auto; margin-left: auto">
+                <span id="popupLoginText"></span>
+            </div>
+            <span style="text-align: center; color: #f8e477"
+                ><strong>Nastavitve </strong></span
+            >
+            <div
+                class="popupGroup"
+                style="
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    text-align: justify;
+                "
+            >
+                <div style="display: flex; flex-direction: row">
+                    <div class="form-group">
+                        <label style="width: 100%">Uporabniško ime:</label>
+                        <input
+                            type="text"
+                            class="form-control popupInput"
+                            id="profileNameInput"
+                            value="{{ user.username }}"
+                        />
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: row">
+                    <div class="form-group">
+                        <label style="width: 100%">E-mail:</label>
+                        <input
+                            type="text"
+                            class="form-control popupInput"
+                            id="profileEmailInput"
+                            value="{{ user.email }}"
+                        />
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: row">
+                    <div class="form-group">
+                        <label style="width: 100%">Telefonska št.:</label>
+                        <input
+                            type="text"
+                            class="form-control popupInput"
+                            id="profilePhoneInput"
+                            value="{{ user.telNumber | telNumberPipe}}"
+                        />
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: row">
+                    <div class="form-group">
+                        <label style="width: 100%">Staro geslo:</label>
+                        <input
+                            type="password"
+                            class="form-control popupInput"
+                            id="profilepasswordoldInput"
+                        />
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: row">
+                    <div class="form-group">
+                        <label style="width: 100%">Novo geslo:</label>
+                        <input
+                            type="password"
+                            class="form-control popupInput"
+                            id="profilerepasswordnewInput"
+                        />
+                    </div>
+                </div>
+            </div>
+            <button
+                    class="btn btn-primary"
+                    style="
+                        position: fixed;
+                        bottom: 20px;
+                        right: 5px;
+                        background-color: #f3e38b;
+                        border-color: #f3e38b;
+                        width: 60px;
+                        height: 30px;
+                        font-size: 13px;
+                        padding-left: 0;
+                        padding-right: 0;
+                    "
+                    (click)="logout()"
+            >
+                Logout
+            </button>
+            <div style="display: flex; flex-direction: row">
+                <button
+                    class="btn btn-primary"
+                    style="
+                        position: fixed;
+                        bottom: 20px;
+                        right: 70px;
+                        background-color: #f3e38b;
+                        border-color: #f3e38b;
+                        width: 60px;
+                        height: 30px;
+                        font-size: 13px;
+                        padding-left: 0;
+                        padding-right: 0;
+                    "
+                    (click)="updateUserInfo()"
+                >
+                    Potrditev
+                </button>
+                <div class="pointer" (click)="stateChangLoginPopup()">
+                    <i
+                        class="fa-solid fa-x"
+                        style="position: absolute; top: 10px; right: 10px"
+                    ></i>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="transparentFilter {{
+                showCreatePetBool ||
+                showAppointmentBool ||
+                showDeleteBool ||
+                showRequestBool ||
+                showLoginBool
+                    ? ''
+                    : 'hide'
+            }}"
+            id="transpFilter"
+        ></div>
+    </div>
+</div>
+</div>

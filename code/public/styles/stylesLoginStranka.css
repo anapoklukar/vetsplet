@@ -1,0 +1,112 @@
+@font-face {
+  font-family: Goldleaf;
+  src: url("../webfonts/GOLDLEAF-BOLD-PERSONAL-USE.ttf") format("truetype");
+}
+div {
+  font-family: "Josefin Sans Light";
+}
+p {
+  margin-bottom: -0.1em;
+  margin-top: 0em;
+}
+body {
+  background-image: url("/backgrounds/BackgroundLoginStranka.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.logo {
+  margin-top: -1%;
+  width: 70px;
+}
+#vetSplet {
+  margin-top: 4%;
+  font-size: 60px;
+  font-family: Goldleaf;
+  text-align: center;
+}
+.center-block {
+  margin-left: auto;
+  margin-right: auto;
+}
+.form-label {
+  display: inline;
+  margin-left: 36%;
+}
+.ime {
+  margin-left: 73%;
+}
+.priimek {
+  margin-left: -3%;
+}
+.form-control {
+  width: 30%;
+  padding: 5px 15px;
+  border-radius: 25px;
+  border-color: #707070;
+  margin-bottom: -0.5%;
+}
+#basic-url1 {
+  width: 25%;
+  margin-left: 70%;
+  margin-bottom: 1%;
+}
+#basic-url2 {
+  width: 34%;
+  margin-left: -4%;
+  margin-bottom: 1%;
+}
+.form-text {
+  text-align: right;
+  margin-right: 36%;
+}
+.btn {
+  margin-left: 59%;
+  margin-top: 0.5%;
+  background-color: #f3e38b;
+  opacity: 70%;
+  font-family: Goldleaf;
+  font-size: 140%;
+  color: #f9f7ec;
+  padding: 0px 15px 5px 15px;
+  border: none;
+  border-radius: 15px;
+}
+.btn:hover {
+  color: #f9f7ec;
+  background-color: #f3e38b;
+  opacity: 100%;
+}
+.btn-primary:active {
+  background-color: #f3e38b !important;
+}
+@media screen and (max-width: 991px) {
+  .form-label {
+    display: inline;
+    margin-left: 27%;
+  }
+  .form-text {
+    text-align: right;
+    margin-right: 27%;
+  }
+  .form-control {
+    width: 50%;
+    padding: 5px 15px;
+    border-radius: 25px;
+    border-color: #707070;
+    margin-bottom: -1%;
+  }
+  #basic-url1,
+  #basic-url2 {
+    width: 50%;
+    padding: 5px 15px;
+    border-radius: 25px;
+    border-color: #707070;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn {
+    margin-left: 62%;
+  }
+}

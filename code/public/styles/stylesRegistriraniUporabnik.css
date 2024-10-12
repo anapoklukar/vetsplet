@@ -1,0 +1,116 @@
+@font-face {
+  font-family: Goldleaf;
+  src: url("GOLDLEAF-BOLD-PERSONAL-USE.ttf");
+}
+div {
+  font-family: "Josefin Sans Light";
+}
+
+p {
+  margin-bottom: -0.1em;
+  margin-top: 0em;
+}
+
+body {
+  background-image: url("Background.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+  align-items: center;
+}
+
+#navbar .btn {
+  margin-top: -1%;
+  background-color: #3ebdae;
+  opacity: 70%;
+  font-family: Goldleaf;
+  font-size: 140%;
+  color: #ddfbf7;
+  padding: 0px 15px 5px 15px;
+  border: none;
+  border-radius: 15px;
+}
+
+#navbar .btn:hover {
+  color: #ddfbf7;
+  background-color: #3ebdae;
+  opacity: 100%;
+}
+#navbar .btn-primary:active {
+  background-color: #3ebdae !important;
+}
+
+.logo {
+  margin-top: -1%;
+  width: 70px;
+}
+
+#vetSplet {
+  margin-top: 10%;
+  font-size: 60px;
+  font-family: Goldleaf;
+  margin-left: 38%;
+  padding-left: 50px;
+  margin-bottom: 3%;
+}
+.form-control {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  padding: 5px 15px;
+  border-radius: 25px;
+  border-color: #707070;
+  margin-bottom: -0.5%;
+}
+
+.form-label {
+  display: inline;
+  margin-left: 36%;
+  margin-top: 8%;
+}
+
+.mb-3 .btn {
+  margin-left: 59.5%;
+  margin-top: 0.5%;
+  background-color: #3ebdae;
+  opacity: 70%;
+  font-family: Goldleaf;
+  font-size: 140%;
+  color: #ddfbf7;
+  padding: 0px 15px 5px 15px;
+  border: none;
+  border-radius: 15px;
+}
+.mb-3 .btn:hover {
+  color: #ddfbf7;
+  background-color: #3ebdae;
+  opacity: 100%;
+}
+.mb-3 .btn-primary:active {
+  background-color: #3ebdae !important;
+}
+
+.dropdown-item {
+  margin-left: 45%;
+  font-family: "Josefin Sans Light";
+}
+
+#prijava {
+  font-family: "Josefin Sans Light";
+  color: #525252;
+  text-align: center;
+}
+
+@media screen and (max-width: 991px) {
+  .form-control {
+    width: 50%;
+  }
+  .form-label {
+    margin-left: 27%;
+  }
+  #vetSplet {
+    margin-left: 15%;
+  }
+}

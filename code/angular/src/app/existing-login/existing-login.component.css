@@ -1,0 +1,136 @@
+div{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.existing-login-container {
+  background-image: url("../../assets/backgrounds/BackgroundClinic.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+  align-items: center;
+  height: 100vh;
+}
+
+.btn {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #3ebdae;
+  opacity: 70%;
+  font-family: Goldleaf;
+  font-size: 140%;
+  color: #ddfbf7;
+  padding: 0px 15px 5px 15px;
+  border: none;
+  border-radius: 15px;
+}
+
+.btn:hover {
+  color: #ddfbf7;
+  background-color: #3ebdae;
+  opacity: 100%;
+}
+.btn-primary:active {
+  background-color: #3ebdae !important;
+}
+
+#prijava {
+  font-family: "Josefin Sans Light";
+  color: #525252;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-control {
+  width: 100%;
+  padding: 5px 15px;
+  border-radius: 25px;
+  border-color: #707070;
+  margin-bottom: -0.5%;
+  background-color: #fbfbfb;
+}
+@media screen and (max-width: 400px) {
+  .login-veterinar-container {
+    overflow: auto;
+  }
+
+  .container {
+    width: 200px !important;
+  }
+
+  .form-label {
+    display: inline;
+    margin-left: 5%;
+  }
+  .wrap{
+    width: 100%;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 5px 15px;
+    border-radius: 25px;
+    border-color: #707070;
+    margin-bottom: -1%;
+  }
+  #ime,
+  #priimek {
+    width: 100%;
+    padding: 5px 15px;
+    border-radius: 25px;
+    border-color: #707070;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn {
+    margin-top: 0.5%;
+    margin-left: 56%;
+  }
+  #prijava {
+    margin-left: unset;
+    margin-top: unset;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .login-veterinar-container {
+    overflow: auto;
+  }
+
+  .form-label {
+    display: inline;
+    margin-left: 5%;
+  }
+  .wrap{
+    width: 180%;
+    margin-left: -80px !important;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 5px 15px;
+    border-radius: 25px;
+    border-color: #707070;
+    margin-bottom: -1%;
+  }
+  #ime,
+  #priimek {
+    width: 100%;
+    padding: 5px 15px;
+    border-radius: 25px;
+    border-color: #707070;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn {
+    margin-top: 0.5%;
+    margin-left: 56%;
+  }
+  #prijava {
+    margin-left: unset;
+    margin-top: unset;
+    text-align: center;
+  }
+}

@@ -1,0 +1,23 @@
+version: "3.5"
+services:
+  node-api:
+    container_name: vetsplet-app
+    ports:
+      - "3000:3000"
+    image: vetsplet-server
+    build: ./
+    environment:
+      - NODE_ENV=test
+    networks:
+      - vetsplet-network
+  mongo-db:
+    image: mongo
+    container_name: vetsplet-mongo-db
+    ports:
+      - "27017-27019:27017-27019"
+    networks:
+      - vetsplet-network
+networks:
+  vetsplet-network:
+    name: vetsplet-network
+    driver: bridge

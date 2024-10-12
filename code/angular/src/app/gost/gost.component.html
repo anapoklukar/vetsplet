@@ -1,0 +1,117 @@
+<div class="container-gost" style="z-index: -100;">
+    <app-navbar></app-navbar>
+    <img src="../../assets/images/icons/bloby1.png" class="b1" style="position: fixed; z-index: 1; left: -10%; top: 50%; margin-top: -350px; height: 700px; width: 700px;">
+    <img src="../../assets/images/icons/bloby2.png" class="b2" style="position: fixed; z-index: 1; right: -10%; top: 50%; margin-top: -350px; height: 700px; width: 700px;">
+    <div class="container-fluid" style="width: 100%;">
+        <div class="row">
+            <div class="col-12 col-xl-4">
+                <div class="textContainer">
+                    <h3 class="headerText" style="z-index: 2;"><strong>Kaj ponujamo?</strong></h3>
+                    <span class="standardText" style="z-index: 2;">Povezava med vsemi pacienti in veterinarji, </span>
+                    <span class="standardText" style="z-index: 2;">ki omogoča stalno komunikacijo z enim </span>
+                    <span class="standardText" style="z-index: 2;">namenom: pomagati našim ljublječkom.</span>
+                    <hr class="seperator">
+                    <span class="standardText" style="z-index: 2;">Enostaven vmesnik z več možnostmi,</span>
+                    <span class="standardText" style="z-index: 2;">kako pomagati živalim do boljšega </span>
+                    <span class="standardText" style="z-index: 2;">in bolj zdravega življenja. </span>
+                </div>
+            </div>
+            <div class="col-12 col-xl-4">
+                <div class="iconrow" style="margin-top: 60px;">
+                    <div class="fuse">
+                        <div>
+                            <button type="button" class="btn btn-primary circlebtn equipment"></button>
+                            <i class="fa-solid fa-stethoscope icon"></i>
+                        </div>
+                        <div class="txt">
+                            <span class="hover-underline-animation">Enostavno in z nekaj <u>kliki</u> poskrbite za vse, od <strong>zdravstvenih
+                            zahtev</strong> do <strong>higiene</strong>, naši veterinarji vam bodo pomagali.</span>
+                        </div>
+                    </div>
+                    <div class="fuse">
+                        <div>
+                            <button type="button" class="btn btn-primary circlebtn calendar"></button>
+                            <i class="fa-solid fa-calendar-days icon"></i>
+                        </div>
+                        <div class="txt">
+                            <span class="hover-underline-animation">Ostanite <u>organizirani</u>, spremljajte vse hišne ljubljenčke 
+                            hkrati in vedno boste vedeli, kdaj je <strong>na voljo termin</strong> ali kdaj je <strong>polno zaseden.</strong></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="iconrow">
+                    <div class="fuse">
+                        <div>
+                            <button type="button" class="btn btn-primary circlebtn doctor"></button>
+                            <i class="fa-solid fa-user-doctor icon"></i>
+                        </div>
+                        <div class="txt">
+                            <span class="hover-underline-animation">Preglejte vse svoje <strong>pretekle</strong> in <strong>prihodnje dogodtke</strong>, 
+                            nikoli <u>ne pozabite</u>, kaj ste načrtovali, in ostanite
+                            organizirani tako stranka kot veterinar.</span>
+                        </div>
+                    </div>
+                    <div class="fuse">
+                        <div>
+                            <button type="button" class="btn btn-primary circlebtn graph"><canvas id="chart"></canvas></button>
+                            <i class="fa-solid fa-chart-simple icon"></i>
+                        </div>
+                        <div class="txt">
+                            <span class="hover-underline-animation">Iz meseca v mesec <strong>se povečujemo</strong> in vsak dan je <u>rezerviranih vedno več terminov.</u></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>  
+            <div class="col-12 col-xl-4">
+                <div class="textContainer">
+                    <span class="standardText right" style="z-index: 2;">Ali se morate nujno obrniti na veterinarja? </span>
+                    <h6 class="headerText right" style="z-index: 2;">Oglejte si naše klinike! </h6>
+                    <hr class="seperator right">
+                    <div class="carosel">
+                        <div
+                                class="singleLine"
+                                style="display: flex; flex-direction: row"
+                        >
+                            <div class="oneLine" style="z-index: 2;">
+                                <h3 style="color: #212529 !important;"><strong id="clinicTitle">{{clinics[currentIndex].name}}</strong></h3>
+                                <i class="fa-solid fa-map-location-dot">
+                                            <span style="font-size: 22px; font-family: 'Josefin Sans', sans-serif; font-weight: normal;"
+                                            ><strong><u>Address: </u></strong><span id="clinicAddress">{{clinics[currentIndex].address}}</span></span
+                                            >
+                                </i>
+                            </div>
+                        </div>
+                        <div
+                                class="singleLine"
+                                style="display: flex; flex-direction: row"
+                        >
+                            <div class="oneLine" style="z-index: 2;">
+                                <i class="fa-solid phone fa-phone" >
+                                            <span style="font-size: 22px; font-family: 'Josefin Sans', sans-serif; font-weight: normal;"
+                                            ><strong><u>Phone: </u></strong><span id="clinicPhone">{{clinics[currentIndex].telNumber}}</span></span
+                                            >
+                                </i>
+                            </div>
+                        </div>
+                        <div
+                                class="singleLine"
+                                style="display: flex; flex-direction: row"
+                        >
+                            <div class="oneLine" style="z-index: 2;">
+                                <i class="fa-solid fa-envelope">
+                                            <span style="font-size: 22px; font-family: 'Josefin Sans', sans-serif; font-weight: normal;"
+                                            ><strong><u>Email: </u></strong
+                                            ><span id="clinicEmail">{{clinics[currentIndex].email}}</span></span
+                                            >
+                                </i>
+                                <i (click)="previous()" style="font-size: 40px; float: left; z-index: 2;" class="fa-solid fa-arrow-left"></i>
+                                <i (click)="next()" style="font-size: 40px; float: right; z-index: 2;" class="fa-solid fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>

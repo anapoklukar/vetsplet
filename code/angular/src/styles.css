@@ -1,0 +1,12 @@
+
+  .form-control.ng-invalid.ng-touched {
+    border-color: red;
+}
+
+.form-control.ng-valid {
+    border-color: green;
+}
+
+body{
+  overflow: hidden;
+}

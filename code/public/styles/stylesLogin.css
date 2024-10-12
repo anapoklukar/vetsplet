@@ -1,0 +1,106 @@
+@font-face {
+  font-family: Goldleaf;
+  src: url("../webfonts/GOLDLEAF-BOLD-PERSONAL-USE.ttf") format("truetype");
+}
+div {
+  font-family: Goldleaf;
+}
+p {
+  margin-bottom: -0.1em;
+  margin-top: 0em;
+}
+body {
+  z-index: 1;
+  background-image: url("/backgrounds/BackgroundLogin.png");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+.index {
+  z-index: 1;
+}
+#vetSplet {
+  margin-top: 30vh;
+  font-size: 60px;
+  font-family: Goldleaf;
+  text-align: center;
+}
+.buttonVet {
+  margin-top: 3vh;
+  position: absolute;
+  right: 52vw;
+  padding: 0px 35px 15px 35px;
+  font-family: Goldleaf;
+  font-size: 40px;
+  color: #ddfbf7;
+  background-color: #3ebdae;
+  opacity: 50%;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+}
+.buttonStr {
+  margin-top: 3vh;
+  position: absolute;
+  left: 52vw;
+  font-family: Goldleaf;
+  padding: 0px 42.25px 15px 42.25px;
+  font-size: 40px;
+  color: #f9f7ec;
+  background-color: #f3e38b;
+  opacity: 50%;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+}
+.buttonVet:hover {
+  background-color: #3ebdae;
+  opacity: 100%;
+  padding: 0px 20px 10px 20px;
+}
+.buttonVet .drugic {
+  display: none;
+}
+.buttonVet:hover .drugic {
+  display: block;
+  font-size: 20px;
+  font-family: "Josefin Sans Light";
+}
+.buttonStr:hover {
+  background-color: #f3e38b;
+  opacity: 100%;
+  padding: 0px 20px 10px 20px;
+}
+.buttonStr .drugic {
+  display: none;
+}
+.buttonStr:hover .drugic {
+  display: block;
+  font-size: 20px;
+  font-family: "Josefin Sans Light";
+}
+#prijava {
+  position: absolute;
+  font-family: "Josefin Sans Light";
+  color: #525252;
+  text-align: center;
+  font-size: 20px;
+  margin-top: 51vh;
+}
+.tukaj {
+  text-shadow: 3px 3px 5px rgba(82, 82, 82, 0.61);
+}
+.tukaj:hover {
+  font-weight: bold;
+}
+@media screen and (max-width: 1399px) {
+  .logo {
+    margin-top: 40vh;
+  }
+}

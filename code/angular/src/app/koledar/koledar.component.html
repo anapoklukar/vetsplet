@@ -1,0 +1,50 @@
+<div class="card zgCardD scroll" style="background-color: transparent; border: none">
+  <div class="card-body text-center">
+    <div class="button-container-calendar">
+      <button
+        id="previous"
+        (click)="previous()"
+      >
+                                            <span
+                                              class="material-symbols-rounded"
+                                            >arrow_left</span
+                                            >
+      </button>
+      <p id="monthAndYear"></p>
+      <button id="next" (click)="next()">
+                                            <span
+                                              class="material-symbols-rounded"
+                                            >arrow_right</span
+                                            >
+      </button>
+    </div>
+    <div
+      class="wrapper"
+      style="overflow: visible"
+    >
+      <div class="container-calendar">
+        <div id="right">
+          <table
+            class="table-calendar"
+            id="calendar"
+            data-lang="en"
+            style="width: 100% !important;"
+          >
+            <thead
+              id="thead-month"
+            ></thead>
+            <tbody
+              id="calendar-body"
+            ></tbody>
+          </table>
+          <div
+            class="footer-container-calendar"
+          >
+            <p id="month"></p>
+            <p id="year"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

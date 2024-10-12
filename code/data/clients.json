@@ -1,0 +1,134 @@
+[
+  {
+    "_id": "657ad7c1a88984f3b1586605",
+    "name": "Peter",
+    "surname": "Kos",
+    "telNumber": "+386 41 777 888",
+    "email": "peter.kos@gmail.com",
+    "username": "peter.kos",
+    "password": "$2a$10$IsKzy09fIQpPIV2lIvWBfu5BBMV12boairYkibn6eoy5F3ZiSUedC",
+    "salt": 10,
+    "patients": [
+      {
+        "_id": "657ad81da88984f3b1586608",
+        "name": "Bimi",
+        "age": 3,
+        "gender": "moški",
+        "passportId": "AA122B",
+        "chip": true,
+        "species": "pes",
+        "breed": "prinašalec",
+        "clinic": "Živalstvo Zdravo",
+        "assignedEmployee": "simonnovak"
+      },
+      {
+        "_id": "657c2eea0986bad0f6b98e93",
+        "name": "Nona",
+        "age": 0.5,
+        "gender": "ženska",
+        "passportId": "AA234C",
+        "chip": false,
+        "species": "mačka",
+        "breed": "sijamska mačka",
+        "clinic": "Živalstvo Zdravo",
+        "assignedEmployee": "simonnovak"
+      },
+      {
+        "_id": "657c2eed1d66c49e9523080a",
+        "name": "Lili",
+        "age": 6,
+        "gender": "ženska",
+        "passportId": "AB354C",
+        "chip": true,
+        "species": "mačka",
+        "breed": "ragdoll",
+        "clinic": "Živalstvo Zdravo",
+        "assignedEmployee": "anakovac"
+      },
+      {
+        "_id": "657c2ef01046e99eda754276",
+        "name": "Rex",
+        "age": 9,
+        "gender": "moški",
+        "passportId": "BA314C",
+        "chip": true,
+        "species": "pes",
+        "breed": "bokser",
+        "clinic": "Srčkani Ljubljenčki",
+        "assignedEmployee": "maja_krajnc"
+      }
+    ]
+  },
+  {
+    "_id": "657c2f2091d0c32712fbed49",
+    "name": "Zala",
+    "surname": "Štrukelj",
+    "telNumber": "+386 31 444 555",
+    "email": "zala.strukelj@gmail.com",
+    "username": "zala_strukelj",
+    "password": "$2a$10$IsKzy09fIQpPIV2lIvWBfu5BBMV12boairYkibn6eoy5F3ZiSUedC",
+    "salt": 10,
+    "patients": [
+      {
+        "_id": "657c2ef2d79b835d2c6631e2",
+        "name": "Lea",
+        "age": 3,
+        "gender": "ženska",
+        "passportId": "JM847S",
+        "chip": true,
+        "species": "pes",
+        "breed": "mops",
+        "clinic": "VetVeselje",
+        "assignedEmployee": "andrejbizjak"
+      },
+      {
+        "_id": "657c2ef71bd269669fc91cc5",
+        "name": "Cookie",
+        "age": 1,
+        "gender": "ženska",
+        "passportId": "MA123R",
+        "chip": true,
+        "species": "pes",
+        "breed": "jorkširski terier",
+        "clinic": "VetVeselje",
+        "assignedEmployee": "rok_gombac"
+      }
+    ]
+  },
+  {
+    "_id": "657c2f27be133ca3d26d531d",
+    "name": "Tjaša",
+    "surname": "Kocjan",
+    "telNumber": "+386 40 987 654",
+    "email": "tjasa.kocjan@gmail.com",
+    "username": "tjasakocjan",
+    "password": "$2a$10$IsKzy09fIQpPIV2lIvWBfu5BBMV12boairYkibn6eoy5F3ZiSUedC",
+    "salt": 10,
+    "patients": [
+      {
+        "_id": "657c2efa768f0f6febeb00a9",
+        "name": "Simba",
+        "age": 5,
+        "gender": "moški",
+        "passportId": "KO124R",
+        "chip": true,
+        "species": "mačka",
+        "breed": "perzijska mačka",
+        "clinic": "SrčnaVeterina",
+        "assignedEmployee": "matej_kobal"
+      },
+      {
+        "_id": "657c2efe18ca37e4e31b5fdd",
+        "name": "Gizmo",
+        "age": 10,
+        "gender": "moški",
+        "passportId": "DF349O",
+        "chip": true,
+        "species": "mačka",
+        "breed": "sfinga",
+        "clinic": "SrčnaVeterina",
+        "assignedEmployee": "sara_jovanovic"
+      }
+    ]
+  }
+]

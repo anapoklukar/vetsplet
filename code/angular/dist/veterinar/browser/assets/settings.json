@@ -1,0 +1,5 @@
+{
+    "developmentApi":"localhost:3000",
+    "timeFormat": "12",
+    "dateFormat": "dd"
+}

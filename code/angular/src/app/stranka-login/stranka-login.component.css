@@ -1,0 +1,178 @@
+p {
+  margin-bottom: -0.1em;
+  margin-top: 0em;
+}
+
+.stranka-login-container {
+  background-image: url("../../assets/backgrounds/BackgroundLoginStranka.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+#navbar {
+  background-color: #3ebdae !important;
+  max-width: 800px;
+  border-radius: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 50px;
+  margin-top: -50px;
+  font-size: large;
+}
+#navbar .btn {
+  margin-top: -1%;
+  background-color: #3ebdae;
+  opacity: 70%;
+  font-family: Goldleaf;
+  font-size: 140%;
+  color: #ddfbf7;
+  padding: 0px 15px 5px 15px;
+  border: none;
+  border-radius: 15px;
+}
+#navbar .btn:hover {
+  color: #ddfbf7;
+  background-color: #3ebdae;
+  opacity: 100%;
+}
+#navbar .btn-primary:active {
+  background-color: #3ebdae !important;
+}
+
+#vetSplet {
+  margin-top: -10vh;
+  font-size: 60px;
+  font-family: Goldleaf;
+  text-align: center;
+}
+.center-block {
+  margin-left: auto;
+  margin-right: auto;
+}
+.form-label {
+  display: inline;
+  margin-left: 36%;
+}
+
+.form-control {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  padding: 5px 15px;
+  border-radius: 25px;
+  border-color: #707070;
+}
+
+.form-text {
+  text-align: right;
+  margin-right: 36%;
+}
+.mb-3 .btn {
+  margin-left: 59%;
+  margin-top: 0.5%;
+  background-color: #f3e38b;
+  opacity: 70%;
+  font-family: Goldleaf;
+  font-size: 140%;
+  color: #f9f7ec;
+  padding: 0px 15px 5px 15px;
+  border: none;
+  border-radius: 15px;
+}
+.mb-3 .btn:hover {
+  color: #f9f7ec;
+  background-color: #f3e38b;
+  opacity: 100%;
+}
+.mb-3 .btn-primary:active {
+  background-color: #f3e38b !important;
+}
+@media screen and (max-width: 991px) {
+  .form-label {
+    display: inline;
+    margin-left: 10% !important;
+  }
+  .form-text {
+    text-align: right;
+    margin-right: 13%;
+  }
+  .form-control {
+    width: 80%;
+    padding: 5px 15px;
+    border-radius: 25px;
+    border-color: #707070;
+    margin-bottom: -1%;
+  }
+  .nameLabel,
+  .surnameLabel {
+    text-align: right;
+    display: inline;
+    margin-left: 11%;
+    padding: 5px 0px;
+    border-radius: 25px;
+    border-color: #707070;
+  }
+  #name,
+  #surname {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .mb-3 .btn {
+    margin-left: 62%;
+  }
+}
+@media screen and (max-width: 400px) {
+  form {
+    width: 60% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .stranka-login-container {
+    width: 100% !important;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+  }
+
+  .form-control {
+    width: 90%;
+    padding: 0px 10px !important;
+    border-radius: 25px;
+    border-color: #707070;
+    margin-bottom: -1%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  form {
+    width: 60% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .stranka-login-container {
+    width: 100% !important;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+  }
+
+  .form-control {
+    width: 90%;
+    padding: 0px 10px !important;
+    border-radius: 25px;
+    border-color: #707070;
+    margin-bottom: -1%;
+  }
+
+  .mb-3 .btn {
+    margin-left: 75% !important;
+  }
+}

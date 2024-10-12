@@ -1,0 +1,783 @@
+@font-face {
+  font-family: Goldleaf;
+  src: url(GOLDLEAF-BOLD-PERSONAL-USE.ttf);
+}
+@font-face {
+  font-family: "Josefin Sans Light";
+  src: url(JosefinSans-Light.ttf);
+}
+div {
+  font-family: "Josefin Sans Light";
+}
+p {
+  margin-bottom: -0.1em;
+  margin-top: 0em;
+}
+body {
+  background-image: url("BackgroundVeterinar.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.container-fluid {
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+.zgCardD,
+.zgCardL,
+.spCard {
+  background-color: #f1fcfb;
+}
+.zgCardL {
+  height: 47vh;
+  width: 42vw;
+  margin-top: 2vh;
+  border-radius: 25px;
+}
+.zgCardD {
+  margin-left: 0.5vw;
+  width: 42vw;
+  height: 47vh;
+  margin-top: 2vh;
+  border-radius: 25px;
+}
+.zgCardD .btn {
+  font-size: 1.5vh;
+  min-width: 7vw;
+  padding: 0.5vh 0.5vh 0 0.5vh;
+  color: #697e7d;
+  border-color: #d0e3e2;
+  border-radius: 5rem;
+  background-color: #d0e3e2;
+}
+.zgCardD .btn-group input[type="radio"]:hover + label {
+  background-color: #697e7d;
+  color: #d0e3e2;
+  border-color: #697e7d;
+}
+.zgCardD .btn-group input[type="radio"]:checked + label {
+  background-color: #697e7d;
+  color: #d0e3e2;
+  border-color: #697e7d;
+}
+.card-body.card-body-wrapper {
+  width: 100%;
+}
+.spCard {
+  width: 84.5vw;
+  height: 47vh;
+  margin-top: 2vh;
+  border-radius: 25px;
+}
+.dropdown-toggle {
+  font-size: small;
+}
+.form-control {
+  font-size: small;
+}
+#drpdwn1 {
+  display: none;
+}
+#drpdwn,
+#drpdwn1,
+#sortiraj {
+  font-size: small;
+}
+#sortByStr,
+#sortByPac,
+#sortByVet,
+#sortByVetAmb,
+#sortByNega,
+#sortByDatum {
+  font-size: small;
+  color: #454545;
+  overflow-y: scroll;
+  height: 23.5vh;
+  width: 17vw;
+  display: none;
+}
+#sortByStr {
+  display: block;
+}
+.LcardLevo {
+  width: 18rem;
+  background: none;
+  border: none;
+}
+.LcardLevo .btn {
+  color: #697e7d;
+  border-color: #d0e3e2;
+  border-radius: 5rem;
+  background-color: #d0e3e2;
+  padding: 0.5vh 0.5vh 0 0.5vh;
+}
+.profileLocation {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+}
+.profileInformation {
+  padding: 4%;
+  display: flex;
+  flex-direction: column;
+}
+.btn.profile {
+  background-image: url("icons/profile.jpg");
+  background-color: white !important;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.3s ease;
+  border: none;
+  margin-left: 1vw;
+  overflow: hidden;
+}
+.btn.profile:hover {
+  background-image: none;
+  background-color: white !important;
+  border: 0.1vh solid #707070;
+}
+
+.btn.profile .btn-text {
+  /* color: transparent; */
+  font-family: "Josefin Sans", sans-serif;
+  opacity: 0;
+}
+
+.btn.profile:hover .btn-text {
+  opacity: 1;
+  color: #454545 !important;
+  font-size: small;
+}
+.pointer {
+  cursor: pointer;
+}
+#popuplogin {
+  position: fixed;
+  font-family: "Josefin Sans", sans-serif;
+  display: none;
+  width: 330px;
+  background-color: #f9fffe;
+  border: 1px solid rgb(105, 145, 143);
+  color: #707070;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  z-index: 2;
+  bottom: 88%;
+  left: 17%;
+  transform: translate(-10%, 80%);
+}
+#popuplogin.show {
+  display: block;
+}
+.popupInput {
+  height: 20px;
+  width: 100%;
+}
+.popupGroup {
+  padding: 20px;
+}
+
+.transparentFilter {
+  position: fixed;
+  background-color: transparent;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+#gumbPotrdi {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3ebdae;
+  border-color: #3ebdae;
+  width: 60px;
+  height: 30px;
+  font-size: 13px;
+  padding-left: 0;
+  padding-right: 0;
+}
+#potrdi .btn:hover {
+  background-color: #cac8c8 !important;
+}
+.hide {
+  display: none;
+}
+#sortByStr th,
+#sortByPac th,
+#sortByVet th,
+#sortByVetAmb th,
+#sortByNega th,
+#sortByDatum th {
+  font-weight: normal;
+}
+.LcardDesno {
+  border-color: #d0e3e2;
+  margin-left: 2vw;
+  width: 17rem;
+  height: 18rem;
+  margin-top: -10vh;
+}
+#notif {
+  text-align: right;
+}
+#bell {
+  position: absolute;
+  cursor: pointer;
+}
+#posInZdrTveganjeTab,
+#operacijeInNujnoTab,
+#zunanjePoskodbeTab,
+#notranjePoskodbeTab {
+  display: none;
+  font-size: small;
+}
+#alertPopup {
+  position: absolute;
+  font-family: "Josefin Sans", sans-serif;
+  display: none;
+  width: 330px;
+  flex-direction: column;
+  bottom: 5%;
+  right: 5%;
+  max-height: 150px;
+  background-color: #f9fffe;
+  border: 1px solid rgb(105, 145, 143);
+  color: #707070;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-radius: 6px;
+  z-index: 2;
+  transform: translate(0%, 0%);
+}
+#alertPopup.show {
+  display: flex;
+}
+.alert {
+  background-color: #f9fffe;
+  color: #707070;
+  border: none;
+}
+.alert .btn {
+  background-color: #3ebdae;
+  border-color: #3ebdae;
+  width: 60px;
+  height: 30px;
+  font-size: 13px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.alert .btn:hover {
+  background-color: #cac8c8 !important;
+}
+.gumba #zavVet,
+.gumba #sprVet {
+  font-size: 1.5vh;
+  min-width: 5vw;
+  padding: 0;
+  color: white;
+  background-color: #3ebdae;
+  border-color: #3ebdae;
+  border-radius: 5rem;
+  margin-top: 1vh;
+}
+.gumba #zavVet:hover,
+.gumba #sprVet:hover {
+  background-color: #cac8c8;
+  border-color: #3ebdae;
+}
+.ikone {
+  margin-left: -4.6vw;
+  margin-top: 7vh;
+  position: absolute;
+}
+.icon1 {
+  width: 2.5vw;
+  height: 5vh;
+  margin-left: -0.25vw;
+  object-fit: cover;
+  padding: 0;
+}
+.LcardDesno .ikone input[type="radio"] + label {
+  background: white;
+  cursor: pointer;
+  border: 1px solid #d0e3e2;
+  border-radius: 0.5vw 0 0 0.5vw;
+  padding: 0.2vw 0.2vw 0 0.2vw;
+}
+.LcardDesno .ikone input[type="radio"]:hover + label {
+  margin-left: -0.3vw;
+  width: 3vw;
+  z-index: 1;
+  .line {
+    display: inline;
+  }
+}
+.LcardDesno .ikone input[type="radio"]:checked + label {
+  border-radius: 0.5vw;
+  width: 12vw;
+  text-align: left;
+  padding: 0;
+  .line,
+  .opis-zg,
+  .opis-sp,
+  .opis {
+    display: inline;
+  }
+  .LcardDesno .ikone input[type="radio"]:hover + label {
+    margin-left: 0.5vw;
+  }
+}
+#ik1:checked + label {
+  margin-top: -13vh;
+}
+#ik2:checked + label {
+  margin-top: -24.25vh;
+}
+#ik3:checked + label {
+  margin-top: -35.5vh;
+}
+#ik4:checked + label {
+  margin-top: -46.75vh;
+}
+.line {
+  display: none;
+  font-size: xx-large;
+  position: absolute;
+  margin-top: -1vh;
+  margin-left: -0.5vw;
+  color: #cecece;
+}
+.opis {
+  position: absolute;
+  display: none;
+  margin-left: 0;
+  margin-top: 0.7vh;
+  font-size: x-small;
+  font-family: "Josefin Sans Light";
+  font-weight: bold;
+}
+.opis2 {
+  margin-top: 1.5vh;
+}
+.desnaTab {
+  position: absolute;
+  margin-top: 7vh;
+  font-size: small;
+  width: 17vw;
+  margin-left: -1vw;
+  overflow-y: scroll;
+  height: 30vh;
+  display: block;
+}
+.desnaTab .material-symbols-outlined {
+  padding: 0;
+  font-size: x-large;
+  float: right;
+  margin-left: -0.2vw;
+  margin-top: -0.5vh;
+}
+.ime {
+  margin-left: -0.2vw;
+  position: relative;
+  cursor: pointer;
+}
+.ime:hover .material-symbols-outlined {
+  transform: rotate(90deg);
+}
+.ime:hover {
+  background-color: #d0e3e2;
+}
+#popupReq1,
+#popupReq2,
+#popupReq3,
+#popupReq4 {
+  position: fixed;
+  font-family: "Josefin Sans", sans-serif;
+  display: none;
+  width: 14rem;
+  background-color: #f2f9f8;
+  color: #707070;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  z-index: 2;
+  bottom: 88%;
+  left: 17%;
+  transform: translate(80%, 70%);
+}
+#popupReq1.show,
+#popupReq2.show,
+#popupReq3.show,
+#popupReq4.show {
+  display: flex;
+}
+#zahteva {
+  background-color: white;
+  border-radius: 0.5vw;
+  padding: 0.3vw;
+  width: 100%;
+}
+#popupReq1 .btn,
+#popupReq2 .btn,
+#popupReq3 .btn,
+#popupReq4 .btn {
+  font-size: 1.5vh;
+  min-width: 5vw;
+  padding: 0;
+  color: #697e7d;
+  border-color: #d0e3e2;
+  border-radius: 5rem;
+  background-color: white;
+  margin-top: 1vh;
+}
+#popupReq1 .btn:hover,
+#popupReq2 .btn:hover,
+#popupReq3 .btn:hover,
+#popupReq4 .btn:hover {
+  background-color: #d0e3e2;
+  border-color: #d0e3e2;
+  font-weight: bold;
+}
+.gumb1 {
+  margin-right: 1vw;
+  margin-left: 1.25vw;
+}
+.zavrni {
+  display: none;
+}
+.zavrni .odgovor {
+  border: none;
+}
+#komuPosljem:link,
+#komuPosljem:visited,
+#komuPosljem:hover,
+#komuPosljem:active {
+  font-style: normal;
+  color: #697e7d;
+}
+.odgovor:focus {
+  outline: none;
+}
+.odgovorStr {
+  font-style: italic;
+  font-size: small;
+}
+.pošlji {
+  display: flex;
+  justify-content: right;
+}
+.izberiDat {
+  display: none;
+  font-style: italic;
+  font-size: small;
+  justify-content: center;
+  margin-top: 1vh;
+}
+.gumb1:focus ~ .izberiDat {
+  display: flex;
+}
+.gumb1:focus ~ .zavrni {
+  display: none;
+}
+.form-check-input[type="checkbox"] {
+  border: 1px solid #697e7d;
+  border-radius: 5vw;
+}
+.form-check-input:checked {
+  background-color: #697e7d;
+  border-radius: 5vw;
+  border: 1px solid #697e7d;
+  text-shadow: none;
+}
+.form-check-input:focus {
+  box-shadow: none;
+}
+@media only screen and (max-width: 1600px) {
+  .short-text {
+    display: none;
+  }
+
+  .full-text {
+    display: none;
+  }
+
+  .btn.checkUp img {
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    border-right: none;
+  }
+
+  .btn.checkUp:hover .full-text {
+    display: none;
+  }
+
+  .btn.checkUp:hover .short-text {
+    display: block;
+    font-size: medium;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .card-body.card-body-wrapper {
+    width: auto;
+  }
+
+  .container-fluid {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .zgCardL {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .LcardLevo {
+    width: 100%;
+    z-index: 1;
+  }
+
+  #drpdwn,
+  #drpdwn1,
+  #sortiraj {
+    font-size: large;
+  }
+
+  #sortByStr,
+  #sortByPac,
+  #sortByVet,
+  #sortByVetAmb,
+  #sortByNega,
+  #sortByDatum {
+    width: 100%;
+    font-size: x-large;
+  }
+
+  .LcardDesno {
+    width: 85%;
+    margin-top: 0;
+    margin-left: 9vw;
+    height: 40rem;
+  }
+  .ikone {
+    margin-left: -8.5vw;
+    margin-top: 8vh;
+  }
+  .icon1 {
+    width: 4vw;
+    height: 4vh;
+  }
+  #ik1:checked + label {
+    margin-top: -10vh;
+  }
+  #ik2:checked + label {
+    margin-top: -19vh;
+  }
+  #ik3:checked + label {
+    margin-top: -28vh;
+  }
+  #ik4:checked + label {
+    margin-top: -37vh;
+  }
+
+  .LcardDesno .ikone input[type="radio"] + label {
+    border-radius: 2vw 0 0 2vw;
+    padding: 0.5vw 0.5vw 0 0.5vw;
+  }
+  .LcardDesno .ikone input[type="radio"]:hover + label {
+    margin-left: -2.2vw;
+    width: 10vw;
+  }
+  .LcardDesno .ikone input[type="radio"]:checked + label {
+    border-radius: 2vw;
+    width: 50vw;
+    padding: 0.5vw;
+  }
+  .opis {
+    margin-left: 2vw;
+    font-size: large;
+  }
+  #posInZdrTveganjeTab,
+  #operacijeInNujnoTab,
+  #zunanjePoskodbeTab,
+  #notranjePoskodbeTab {
+    width: 100%;
+    font-size: x-large;
+    margin-top: 10vh;
+  }
+  #popupReq1,
+  #popupReq2,
+  #popupReq3,
+  #popupReq4 {
+    width: 20rem;
+    border-radius: 6px;
+    padding: 8px 0;
+    bottom: 50%;
+    left: 10%;
+    font-size: x-large;
+  }
+  .gumb1,
+  .gumb2,
+  .izberiDat,
+  .odgovorStr,
+  .zavrni {
+    font-size: x-large;
+  }
+  .gumb1,
+  .gumb2,
+  .gumb3 {
+    width: 20vw;
+  }
+
+  .zgCardD {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .spCard {
+    width: 100%;
+  }
+  .button-container-calendar #previous,
+  .button-container-calendar #monthAndYear,
+  .button-container-calendar #next {
+    margin-top: -1vh;
+  }
+
+  #reminder-section {
+    height: 40vh;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .card-body.card-body-wrapper {
+    width: auto;
+  }
+
+  .container-fluid {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .zgCardL {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .LcardLevo {
+    width: 100%;
+  }
+  #drpdwn,
+  #drpdwn1,
+  #sortiraj {
+    font-size: small;
+  }
+
+  #sortByStr,
+  #sortByPac,
+  #sortByVet,
+  #sortByVetAmb,
+  #sortByNega,
+  #sortByDatum {
+    width: 100%;
+    font-size: small;
+  }
+
+  .LcardDesno {
+    width: 80%;
+    margin-top: 0;
+    margin-left: 13vw;
+    height: 18rem;
+  }
+  .gumb1,
+  .gumb2,
+  .izberiDat,
+  .odgovorStr,
+  .zavrni {
+    font-size: small;
+  }
+
+  .ikone {
+    margin-left: -15.5vw;
+    margin-top: 7vh;
+  }
+
+  .icon1 {
+    width: 7vw;
+    height: 5vh;
+  }
+  #ik1:checked + label {
+    margin-top: -13vh;
+  }
+  #ik2:checked + label {
+    margin-top: -24vh;
+  }
+  #ik3:checked + label {
+    margin-top: -35vh;
+  }
+  #ik4:checked + label {
+    margin-top: -46vh;
+  }
+
+  .LcardDesno .ikone input[type="radio"] + label {
+    border-radius: 2vw 0 0 2vw;
+    padding: 0.5vw 0.5vw 0 0.5vw;
+  }
+  .LcardDesno .ikone input[type="radio"]:hover + label {
+    margin-left: -2.2vw;
+    width: 10vw;
+  }
+  .LcardDesno .ikone input[type="radio"]:checked + label {
+    border-radius: 2vw;
+    width: 50vw;
+    padding: 0.5vw;
+  }
+  .opis {
+    margin-left: 2vw;
+    font-size: x-small;
+  }
+  #posInZdrTveganjeTab,
+  #operacijeInNujnoTab,
+  #zunanjePoskodbeTab,
+  #notranjePoskodbeTab {
+    width: 100%;
+    font-size: small;
+  }
+  #popupReq1,
+  #popupReq2,
+  #popupReq3,
+  #popupReq4 {
+    width: 14rem;
+    border-radius: 6px;
+    padding: 8px 0;
+    bottom: 30%;
+    left: -25%;
+    font-size: small;
+  }
+
+  .zgCardD {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .spCard {
+    width: 100%;
+  }
+  .button-container-calendar #previous,
+  .button-container-calendar #monthAndYear,
+  .button-container-calendar #next {
+    margin-top: -1vh;
+  }
+  #reminder-section {
+    height: 30vh;
+  }
+}

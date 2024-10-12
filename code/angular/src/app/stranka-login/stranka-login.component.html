@@ -1,0 +1,96 @@
+<div class="stranka-login-container">
+  <app-navbar></app-navbar>
+  <app-logo></app-logo>
+  <form [formGroup]="clientForm" (ngSubmit)="registerClient()">
+    <div class="mb-3">
+      <label for="name" class="form-label nameLabel" style="font-family: 'Josefin Sans', sans-serif;">{{
+        "nameLabel" | translatePipe
+      }}</label>
+      <input
+        type="text"
+        class="form-control center-block"
+        id="name"
+        formControlName="name"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="surname" class="form-label surnameLabel" style="font-family: 'Josefin Sans', sans-serif;">{{
+        "surnameLabel" | translatePipe
+      }}</label>
+      <input
+        type="text"
+        class="form-control center-block"
+        id="surname"
+        formControlName="surname"
+        required
+      />
+    </div>
+  <div class="mb-3">
+    <label for="username" class="form-label" style="font-family: 'Josefin Sans', sans-serif;">{{
+      "usernameLabel" | translatePipe
+    }}</label>
+    <input
+      type="text"
+      class="form-control center-block"
+      id="username"
+      formControlName="username"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label" style="font-family: 'Josefin Sans', sans-serif;">{{
+      "emailLabel" | translatePipe
+    }}</label>
+    <input
+      type="email"
+      class="form-control center-block"
+      id="email"
+      formControlName="email"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="telNumber" class="form-label" style="font-family: 'Josefin Sans', sans-serif;">{{
+      "phoneNumberLabel" | translatePipe
+    }}</label>
+    <input
+      type="text"
+      class="form-control center-block"
+      id="telNumber"
+      formControlName="telNumber"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label" style="font-family: 'Josefin Sans', sans-serif;">{{
+      "passwordLabel" | translatePipe
+    }}</label>
+    <input
+      type="password"
+      class="form-control center-block"
+      id="password"
+      formControlName="password"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="confirmPassword" class="form-label" style="font-family: 'Josefin Sans', sans-serif;">{{
+      "confirmPasswordLabel" | translatePipe
+    }}</label>
+    <input
+      type="password"
+      class="form-control center-block"
+      id="confirmPassword"
+      formControlName="confirmPassword"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary">
+      {{ "continueButton" | translatePipe }}
+    </button>
+  </div>
+  </form>
+</div>

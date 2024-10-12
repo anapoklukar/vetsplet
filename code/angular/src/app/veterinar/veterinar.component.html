@@ -1,0 +1,524 @@
+<div class="container-vet">
+  <div class="row g-0 row-cols-lg-2 row-cols-sm-1 row-cols-1">
+    <div class="col-lg-6">
+      <div class="card zgCardL hiddenScrollbar">
+        <div class="row g-0" style="height: 100%">
+          <div class="card-body" style="height: 100%">
+
+            <div class="row g-0" style="height: 100%">
+              <div class="col-lg-6">
+                <div style="display: flex; flex-direction: column">
+                  <div class="profileLocation">
+                    <button
+                            (click)="stateChangLoginPopup()"
+                            type="button"
+                            class="btn btn-primary btn-lg profile"
+                            style="
+                                    overflow: hidden;
+                                    border-radius: 2vh;
+                                    height: 120px;
+                                    width: 120px;
+                                "
+                    >
+                      <span class="btn-text">VEČ INFO</span>
+                    </button>
+                    <div
+                            class="profileInformation"
+                            style="font-family: 'Josefin Sans', sans-serif"
+                    >
+                      <h3 style="line-height: 1">
+                        {{ employee.name }} {{ employee.surname }}
+                      </h3>
+                      <p style="font-size: 25px; line-height: 0"></p>
+                    </div>
+                  </div>
+
+
+                  <div class="card LcardLevo" style="max-height: 500px; height: 100%; width: 90%;">
+                    <div class="card-body" style="height: 100%; max-height: 500px; width: 100%;">
+                      <h5 class="card-title" style="max-height: 500px; height: 100%; width: 100%;">
+                        <div class="input-group mb-3" style="max-height: 500px; display: flex; flex-direction: row;">
+                          <div class="btn-group">
+                            <select class="btn btn-secondary" (change)="onSearchTypeChange($event)" style="
+                              border-radius: 100px 0 0 100px;
+                              margin-right: -5px;
+                            ">
+                              <option  value="client">Client</option>
+                              <option value="vet">Veterinar</option>
+                            </select>
+                            <div style="margin-left: 5px">
+                              <input
+                                      type="text"
+                                      class="form-control"
+                                      style="border-radius: 0"
+                                      id="sortiraj"
+                                      (input)="inputSearch($event)"
+                                      (focus)="onSearchFocus()"
+                                      (blur)="onSearchBlur()"
+                              />
+                            </div>
+                            <select (change)="searchSelectPet($event)" class="btn btn-secondary" style="
+                              border-radius: 0 100px 100px 0;
+                              min-width: 75px;
+                            ">
+                              @for(data of getSearchedUserPatients(); let i =$index; track i; ) {
+                                <option [value]="i">{{data.name}}</option>
+                              }
+                            </select>
+                            <div id="clientSearchPopup2" style="display: none; position: absolute; top: 34px; background-color: white; border: 1px solid gray; width: 100%; height: auto">
+                              @for(data of searchPopupContent; let i =$index; track i; ) {
+                              <div class="dropdown-clients" (click)="selectSearch(i)">
+                                {{data}}
+                              </div>
+                              }
+
+                            </div>
+                          </div>
+                        </div>
+                      </h5>
+                      <div class="card-text" style="min-height: 50px; max-height: 200px; overflow-y: auto">
+                        <table class="table table-sm table-bordered">
+                          <thead>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Date</th>
+                          </thead>
+                          <tbody class="searchTable">
+                            @for(data of getSearchResults(); let i =$index; track i; ) {
+                              <tr>
+                                <td>{{data.name}}</td>
+                                <td>{{data.type}}</td>
+                                <td>{{data.date}}</td>
+                              </tr>
+                            }
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+
+              <div class="col-lg-6" style="padding: 25px !important;">
+                <div class="card LcardDesno" style="width: 100% !important; height: 100% !important;">
+                  <div class="card-body">
+                    <div class="card-text">
+                      <div id="notif" (click)="openNotif()">
+                        <i class="fa-solid fa-bell"></i>
+                      </div>
+                      <div id="alertPopup">
+                        <div class="pointer" (click)="closeNotif()">
+                          <i
+                                  class="fa-solid fa-x"
+                                  style="
+                                margin-top: 10px;
+                                margin-right: 10px;
+                                float: right;
+                              "
+                          ></i>
+                        </div>
+                        <div *ngFor="let vet of requestedVets; let i = index" class="alert alert-success" role="alert">
+                          {{ vet.name }} {{ vet.surname }}
+                          <button class="btn btn-secondary" style="float: right" (click)="denyEmployee(vet._id, i)">Deny</button>
+                          <button class="btn btn-primary" style="float: right" (click)="acceptEmployee(vet._id, i)">Accept</button>
+                        </div>
+                      </div>
+                      <div id="ikone" class="ikone">
+                        <div data-index="0" id="selected" (click)="moveIkone($event)">
+                          <input
+                                  type="radio"
+                                  class="btn-check icon"
+                                  name="options-base"
+                                  checked
+                          />
+                          <label class="btn">
+                            <img
+                                    class="icon1"
+                                    src="../../assets/images/icons/consultations.png"
+                            />
+                            <span class="line">|</span>
+                            <span class="opis" id="op1"
+                            >POSVETOVANJE IN ZDRAVSTVENO TVEGANJE</span
+                            >
+                          </label>
+                        </div>
+                        <div id="not-selected" class="not-selected">
+                          <div data-index="1" (click)="moveIkone($event)">
+                            <input
+                                    type="radio"
+                                    class="btn-check icon"
+                                    name="options-base"
+                            />
+                            <label class="btn">
+                              <img
+                                      class="icon1"
+                                      src="../../assets/images/icons/operacije.png"
+                              />
+                              <span class="line">|</span>
+                              <span class="opis opis2">OPERACIJE IN NUJNO</span>
+                            </label>
+                          </div>
+                          <div data-index="2" (click)="moveIkone($event)">
+                            <input
+                                    type="radio"
+                                    class="btn-check icon"
+                                    name="options-base"
+                            />
+                            <label class="btn">
+                              <img
+                                      class="icon1"
+                                      src="../../assets/images/icons/bandages.png"
+                              />
+                              <span class="line">|</span>
+                              <span class="opis opis2">ZUNANJE POŠKODBE</span>
+                            </label>
+                          </div>
+                          <div data-index="3" (click)="moveIkone($event)">
+                            <input
+                                    type="radio"
+                                    class="btn-check icon"
+                                    name="options-base"
+                            />
+                            <label class="btn">
+                              <img
+                                      class="icon1"
+                                      src="../../assets/images/icons/internal.png"
+                              />
+                              <span class="line">|</span>
+                              <span class="opis opis2">NOTRANJE POŠKODBE</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="popupReq1">
+                        <div style="flex-direction: column">
+                          <div id="zahteva">
+                              <span style="font-weight: bold">Zahteva:</span
+                              ><br />
+                            Odstranitev šivov po operaciji.
+                          </div>
+                          <div class="gumba">
+                            <button (click)="acceptAppointmentRequest()"
+                                    class="btn btn-primary gumb1"
+                            >
+                              Izberi datum
+                            </button>
+                            <button (click)="cancelAppointmentRequest()"
+                                    class="btn btn-primary gumb2"
+                            >
+                              Zavrni
+                            </button>
+                            <div id="izberiDat" class="izberiDat">
+                              Preverite koledar za proste datume.
+                            </div>
+                            <div class="zavrni" id="zav">
+                                <span class="odgovorStr"
+                                >Odgovorite stranki:</span
+                                >
+                              <textarea
+                                      class="card-text odgovor"
+                                      id="zavrni"
+                                      name="zavrnjenMail"
+                              ></textarea>
+                              <div class="pošlji">
+                                <button
+                                        type="submit"
+                                        class="btn btn-primary gumb3"
+                                        id="pošlji"
+                                >
+                                  <a id="komuPosljem"> Pošlji </a>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="pointer" (click)="closeAcceptModal()">
+                            <i
+                                    class="fa-solid fa-x"
+                                    style="
+                                  position: absolute;
+                                  top: 10px;
+                                  right: 10px;
+                                "
+                            ></i>
+                          </div>
+                        </div>
+                      </div>
+                      <div style="width: 100%;">
+                        <table id="posInZdrTveganjeTab" class="table table-sm table-bordered desnaTab" style="display: block; overflow-y: auto">
+                          <tbody>
+                          @for(data of notCompleteAppointments; let i =$index; track i; ) {
+                            <tr [attr.data-appId]="data.appointmentId" (click)="OpenAcceptModal(data.appointmentId)">
+                              <td class="ime">
+                                {{data.clientName}}
+                                <i class="fa-solid fa-caret-right"></i>
+                              </td>
+                              <td>{{data.patientName}}</td>
+                              <td>{{data.date}}</td>
+                            </tr>
+                          }
+                          </tbody>
+                        </table>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card zgCardD">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="margin-top: 20px; width: 200px; margin-left: auto !important; margin-right: auto !important;">
+          <input (change)="setSchedule('zasebno')" type="radio" class="btn-check" name="btnkoledar" id="btnzasebno" autocomplete="off" checked >
+          <label class="btn btn-outline-primary radius-left" for="btnzasebno" style="font-weight: bold">ZASEBNO</label>
+
+          <input (change)="setSchedule('skupno')" type="radio" class="btn-check" name="btnkoledar" id="btnskupno" autocomplete="off">
+          <label class="btn btn-outline-primary radius-right" for="btnskupno" style="font-weight: bold">SKUPNO</label>
+        </div>
+        <app-koledar (onClickDateEvent)="calendarOnClickEvent($event)" [appointments]="appointments" [employeeAppointmens]="employeeAppointments"></app-koledar>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card spCard" style="margin-right: auto !important; margin-left: auto !important;">
+    <div class="card-body">
+      <p id="eventDate">{{getDayName()}} - {{selectedDayToString()}}</p>
+      <div id="left">
+        <div
+                id="reminder-section"
+                class="hiddenScrollbar"
+        >
+            <div style="display: flex; flex-direction: row; margin-left: auto !important; margin-right: auto !important;">
+              <div class="create-appointment">
+                <div class="flex-row">
+                  <div>
+                    <input
+                            type="text"
+                            id="lastnik"
+                            placeholder="LASTNIK"
+                            contenteditable
+                            (input)="searchClientNames($event)"
+                            (focus)="onClientSearchFocus()"
+                            (blur)="onClientSearchBlur()"
+
+                    />
+                    <div id="clientSearchPopup" class="clientSearchPopup" style="display: none; position: absolute; background-color: white; border: 1px solid gray; width: 10.9%; height: auto">
+                      @for(data of searchedClients; let i =$index; track i; ) {
+                        <div class="dropdown-clients" (click)="selectClient(data)">
+                          {{data.name}} {{data.surname}}
+                        </div>
+                      }
+
+                    </div>
+                  </div>
+                  <select id="žival" class="pet-select" placeholder="ŽIVAL" (change)="changePatient($event)" style="width: 79px">
+                    @for(patient of getClientPatients(); let i =$index; track i; ) {
+                    <option [value]="patient._id">{{patient.name}}</option>
+                    }
+                  </select>
+                  <select id="naročen" placeholder="NAROČEN NA" (change)="selectAppointmentType($event)">
+                    <option value="0">Pregled</option>
+                    <option value="1">Pranje</option>
+                    <option value="2">Higiena</option>
+                    <option value="3">styling</option>
+                    <option value="4">kastracija</option>
+                    <option value="5">sterelizacija</option>
+                    <option value="6">bloodtest</option>
+                    <option value="7">vakcinacija</option>
+                  </select>
+                </div>
+                <div class="flex-row">
+                  <input
+                          type="time"
+                          id="ura"
+                          min="07:00"
+                          step="900"
+                          value="07:00"
+                  />
+                  <input type="text" id="opombe" placeholder="OPOMBE" />
+                  <select id="ustvaril" placeholder="USTVARIL" (change)="onDoctorSelect($event)">
+                    @for(data of getAvailableClients(); let i =$index; track i; ) {
+                      <option [value]="data._id">{{data.name}}</option>
+                    }
+                  </select>
+                </div>
+                <input
+                        type="button"
+                        id="addEvent"
+                        class="buttonDodaj1"
+                        (click)="createAppointment()"
+                        value="+"
+                />
+              </div>
+            </div>
+          <h3 style="text-align: center; margin-top: 20px">Naročene stranke</h3>
+          <div class="table-wrapper">
+            <table
+                    class="table table-sm table-bordered"
+                    id="output"
+                    style="width: 70vw; margin-right: auto; margin-left: auto;"
+            >
+              <thead>
+                <tr>
+                  <th>DATUM</th>
+                  <th>LASTNIK</th>
+                  <th>ŽIVAL</th>
+                  <th>NAROČEN NA</th>
+                  <th>URA</th>
+                  <th>USTVARJENO</th>
+                  <th>OPOMBE</th>
+                  <th>USTVARIL</th>
+                  <th>ODSTRANI</th>
+                </tr>
+              </thead>
+              <tbody>
+              @for(data of shownApps; let i =$index; track i; ) {
+                <tr>
+                  <td>{{getDateFromISO(data.appointment.date)}}</td>
+                  <td>{{data.client.name}} {{data.client.surname}}</td>
+                  <td>{{data.patient.name}}</td>
+                  <td>{{getAppointmentName(data.appointment.vetAppId)}}</td>
+                  <td>{{getTimeFromISO(data.appointment.date)}}</td>
+                  <td>{{data.appointment.dateCreated.replace('T', ' ')}}</td>
+                  <td>{{data.appointment.doctorsNote}}</td>
+                  <td>{{data.employee.name}} {{data.employee.surname}}</td>
+                  <td>
+                    <div class="add" (click)="deleteAppointment(data.appointment._id)">
+                      <i class="fa-solid fa-trash-can" style="color: #2c2c2c; margin-left: 0.6em; margin-top: 0.6em" aria-hidden="true"></i>
+                    </div>
+                  </td>
+                </tr>
+              }
+              </tbody>
+            </table>
+            <!-- List to display reminders -->
+            <ul id="reminderList" style="display: none"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="popuplogin" class="popuplogin {{ showLoginBool ? 'show' : '' }}">
+      <div style="margin-right: auto; margin-left: auto">
+        <span id="popupLoginText"></span>
+      </div>
+      <span style="text-align: center; color: #f8e477"
+      ><strong>Nastavitve </strong></span
+      >
+      <div
+              class="popupGroup"
+              style="
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    text-align: justify;
+                "
+      >
+        <div style="display: flex; flex-direction: row">
+          <div class="form-group">
+            <label style="width: 100%">Uporabniško ime:</label>
+            <input
+                    type="text"
+                    class="form-control popupInput"
+                    id="profileNameInput"
+                    value="{{ employee.username }}"
+            />
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: row">
+          <div class="form-group">
+            <label style="width: 100%">E-mail:</label>
+            <input
+                    type="text"
+                    class="form-control popupInput"
+                    id="profileEmailInput"
+                    value="{{ employee.email }}"
+            />
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: row">
+          <div class="form-group">
+            <label style="width: 100%">Telefonska št.:</label>
+            <input
+                    type="text"
+                    class="form-control popupInput"
+                    id="profilePhoneInput"
+                    value="{{ employee.telNumber }}"
+            />
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: row">
+          <div class="form-group">
+            <label style="width: 100%">Staro geslo:</label>
+            <input
+                    type="password"
+                    class="form-control popupInput"
+                    id="profilepasswordoldInput"
+            />
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: row">
+          <div class="form-group">
+            <label style="width: 100%">Novo geslo:</label>
+            <input
+                    type="password"
+                    class="form-control popupInput"
+                    id="profilerepasswordnewInput"
+            />
+          </div>
+        </div>
+      </div>
+      <button
+              class="btn btn-primary"
+              style="
+                        position: fixed;
+                        bottom: 20px;
+                        right: 20px;
+                        background-color: #f3e38b;
+                        border-color: #f3e38b;
+                        width: 60px;
+                        height: 30px;
+                        font-size: 13px;
+                        padding-left: 0;
+                        padding-right: 0;
+                    "
+              (click)="logout()"
+      >
+        Logout
+      </button>
+      <div style="display: flex; flex-direction: row">
+        <button
+                class="btn btn-primary"
+                style="
+                        position: fixed;
+                        bottom: 20px;
+                        right: 85px;
+                        background-color: #f3e38b;
+                        border-color: #f3e38b;
+                        width: 60px;
+                        height: 30px;
+                        font-size: 13px;
+                        padding-left: 0;
+                        padding-right: 0;
+                    "
+                (click)="updateUserInfo()"
+        >
+          Potrditev
+        </button>
+        <div class="pointer" (click)="stateChangLoginPopup()">
+          <i
+                  class="fa-solid fa-x"
+                  style="position: absolute; top: 10px; right: 10px"
+          ></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

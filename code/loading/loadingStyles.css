@@ -1,0 +1,19 @@
+
+/* Add z-index: 1; in body class in stylesLogin.css */
+
+.loader {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+.loader video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%; 
+    min-height: 100%; 
+    z-index: 2; 
+}  

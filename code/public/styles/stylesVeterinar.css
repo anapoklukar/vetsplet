@@ -1,0 +1,57 @@
+@font-face {
+  font-family: Goldleaf;
+  src: url("../webfonts/GOLDLEAF-BOLD-PERSONAL-USE.ttf");
+}
+div {
+  font-family: "Josefin Sans Light";
+}
+p {
+  margin-bottom: -0.1em;
+  margin-top: 0em;
+}
+body {
+  background-image: url("/backgrounds/BackgroundVeterinar.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.zgCardL {
+  height: 47vh;
+  width: 42vw;
+  margin-top: 2vh;
+  border-radius: 25px;
+}
+.zgCardD {
+  margin-left: 0.5vw;
+  width: 42vw;
+  height: 47vh;
+  margin-top: 2vh;
+  border-radius: 25px;
+}
+.spCard {
+  width: 84.5vw;
+  height: 47vh;
+  margin-top: 2vh;
+  border-radius: 25px;
+}
+@media screen and (max-width: 991px) {
+  .zgCardL {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70vw;
+  }
+  .zgCardD {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70vw;
+  }
+  .spCard {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70vw;
+  }
+}
